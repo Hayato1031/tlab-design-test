@@ -1,13 +1,13 @@
 /* E: a compact academic profile, inspired by the reading rhythm of chujo.me. */
 body[data-layout=editorial]{--ink:#202020;--muted:#616161;--accent:#202020;--line:#e5e5e5;--section-accent:#555;--section-tint:#f7f7f7;--section-line:#e6e6e6;font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif;font-size:14px;line-height:1.85;color:var(--ink)}
 body[data-layout=editorial] .shell{max-width:920px;padding-inline:40px}
-body[data-intro=editorial] .site-header{background:#fff}
-body[data-intro=editorial] .header-row{max-width:none;height:52px;padding-inline:40px}
-body[data-intro=editorial] .brand strong{font:700 14px/1 Arial,sans-serif;letter-spacing:.055em}
-body[data-intro=editorial] .brand small,body[data-intro=editorial] .header-nav{display:none}
-body[data-intro=editorial] .language-nav{font-family:Arial,sans-serif;gap:10px}
-body[data-intro=editorial] .language-nav a{color:#666}
-body[data-intro=editorial] .language-nav a[aria-current]{color:#202020;font-weight:700}
+body[data-layout=editorial] .site-header{background:#fff}
+body[data-layout=editorial] .header-row{max-width:none;height:52px;padding-inline:40px}
+body[data-layout=editorial] .brand strong{font:700 14px/1 Arial,sans-serif;letter-spacing:.055em}
+body[data-layout=editorial] .brand small,body[data-layout=editorial] .header-nav{display:none}
+body[data-layout=editorial] .language-nav{font-family:Arial,sans-serif;gap:10px}
+body[data-layout=editorial] .language-nav a{color:#666}
+body[data-layout=editorial] .language-nav a[aria-current]{color:#202020;font-weight:700}
 body[data-intro=editorial] .lab-intro{border:0;margin:0;padding:34px 0 0;grid-template-columns:minmax(0,1fr) 196px;gap:18px 44px;align-items:start}
 body[data-intro=editorial] .intro-summary h1{font-size:24px;font-weight:700;letter-spacing:0;line-height:1.4}
 body[data-intro=editorial] .intro-summary>p{font-size:14px;line-height:1.9;color:#303030;margin-top:16px;max-width:40em}
@@ -92,7 +92,7 @@ body[data-layout=editorial] .footer-links nav a{font-size:11px}
 body[data-layout=editorial] .prototype-note{color:#777;font-size:10px;line-height:1.8;margin-top:14px}
 @media(max-width:760px){
  body[data-layout=editorial] .shell{padding-inline:26px}
- body[data-intro=editorial] .header-row{padding-inline:26px}
+ body[data-layout=editorial] .header-row{padding-inline:26px}
  body[data-intro=editorial] .lab-intro{grid-template-columns:minmax(0,1fr) 172px;column-gap:28px;padding-top:28px}
  body[data-intro=editorial] .intro-summary h1{font-size:21px}
  .editorial-index{padding-left:20px}
@@ -101,9 +101,9 @@ body[data-layout=editorial] .prototype-note{color:#777;font-size:10px;line-heigh
  body[data-layout=editorial] .contact-block{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
- body[data-layout=editorial] .shell,body[data-intro=editorial] .header-row{padding-inline:22px}
- body[data-intro=editorial] .header-row{height:56px;gap:12px}
- body[data-intro=editorial] .brand strong{font-size:13px}
+ body[data-layout=editorial] .shell,body[data-layout=editorial] .header-row{padding-inline:22px}
+ body[data-layout=editorial] .header-row{height:56px;gap:12px}
+ body[data-layout=editorial] .brand strong{font-size:13px}
  body[data-intro=editorial] .lab-intro{grid-template-columns:1fr;gap:18px;padding-top:27px}
  body[data-intro=editorial] .intro-summary{display:block}
  body[data-intro=editorial] .intro-summary h1{font-size:22px;line-height:1.5;padding:0}
@@ -144,7 +144,7 @@ body[data-layout=editorial] .prototype-note{color:#777;font-size:10px;line-heigh
 
 /* F: the E introduction above D's image-led research and member cards. */
 body[data-layout=hybrid] .shell{max-width:1040px;padding-inline:40px}
-body[data-layout=hybrid] .header-row{max-width:none}
+body[data-layout=hybrid] .header-row{max-width:1344px;padding-inline:56px}
 body[data-layout=hybrid] .intro-summary{font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif}
 body[data-layout=hybrid] .editorial-index{font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif;color:#333}
 body[data-layout=hybrid] .intro-summary .text-link{color:#333;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa}
@@ -154,3 +154,8 @@ body[data-layout=hybrid] .research-thumb{border-radius:2px}
 body[data-layout=hybrid] .works-grid .media-slot{height:128px}
 @media(max-width:760px){body[data-layout=hybrid] .shell{padding-inline:26px}}
 @media(max-width:620px){body[data-layout=hybrid] .shell{padding-inline:22px}body[data-layout=hybrid] .research-section{padding-top:18px}body[data-layout=hybrid] .works-grid .media-slot{height:148px}}
+
+/* F uses the same header width and breakpoints as A–C. */
+@media(min-width:1500px){body[data-layout=hybrid] .header-row{max-width:1456px;padding-inline:64px}}
+@media(max-width:1100px){body[data-layout=hybrid] .header-row{padding-inline:34px}}
+@media(max-width:620px){body[data-layout=hybrid] .header-row{padding-inline:22px}}

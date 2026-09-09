@@ -57,8 +57,9 @@ def build(variant, lang):
 
     if variant == 'd':
         about = about.replace('<h2 id="intro-title">', '<h1 id="intro-title">').replace('</small></h2>', '</small></h1>')
-    if variant in 'ef':
+    if variant == 'e':
         header = header.replace(f'<strong>{t("武田圭史研究室","Takeda Lab.")}</strong>', '<strong>TAKEDA LAB.</strong>')
+    if variant in 'ef':
         approach = about[about.index('<details class="about-more"'):]
         about = f'''<section class="lab-intro editorial-intro" id="about" aria-labelledby="intro-title"><div class="intro-summary"><h1 id="intro-title">{t('武田圭史研究室','Keiji Takeda Laboratory')}</h1><p class="intro-affiliation">{t('慶應義塾大学 湘南藤沢キャンパス','Keio University, Shonan Fujisawa Campus')}</p><p>{t('CG・映像・光・音響を用いたメディア表現を研究しています。生成AI・ドローン・VR/AR/XRの実践的な応用にも取り組んでいます。','We explore expression through computer graphics, film, light and sound, alongside practical applications of generative AI, drones and VR/AR/XR.')}</p><div class="audience-shortcuts">{link('#collaboration',t('共同研究・交流について','Collaboration & exchange'))}{link('#join',t('研究会への参加について','Joining the lab'))}</div></div><nav class="editorial-index" aria-label="{t('ページ内の各情報へ','On this page')}">{nav}</nav>{approach}'''
 
