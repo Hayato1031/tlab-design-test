@@ -1,29 +1,27 @@
 /* E: a compact academic profile, inspired by the reading rhythm of chujo.me. */
 body[data-layout=editorial]{--ink:#202020;--muted:#616161;--accent:#202020;--line:#e5e5e5;--section-accent:#555;--section-tint:#f7f7f7;--section-line:#e6e6e6;font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif;font-size:14px;line-height:1.85;color:var(--ink)}
-body[data-layout=editorial] .shell{max-width:1000px;padding-inline:40px}
-body[data-layout=editorial] .site-header{background:#fff}
-body[data-layout=editorial] .header-row{max-width:none;height:52px;padding-inline:40px}
-body[data-layout=editorial] .brand strong{font:700 14px/1 Arial,sans-serif;letter-spacing:.055em}
-body[data-layout=editorial] .brand small,body[data-layout=editorial] .header-nav{display:none}
-body[data-layout=editorial] .language-nav{font-family:Arial,sans-serif;gap:10px}
-body[data-layout=editorial] .language-nav a{color:#666}
-body[data-layout=editorial] .language-nav a[aria-current]{color:#202020;font-weight:700}
-body[data-layout=editorial] .lab-intro{border:0;margin:0;padding:34px 0 0;grid-template-columns:200px minmax(0,1fr);gap:0 32px;align-items:start}
-.editorial-photo{margin:0;height:auto;background:none;border-radius:0;overflow:visible}.editorial-photo img{height:150px;object-fit:cover}
-.editorial-photo figcaption{font:10px/1.5 Arial,sans-serif;color:#656565;margin-top:8px}
-body[data-layout=editorial] .intro-summary h1{font-size:24px;font-weight:700;letter-spacing:0;line-height:1.4}
-body[data-layout=editorial] .intro-summary>p{font-size:14px;line-height:1.85;color:#303030;margin-top:12px;max-width:46em}
-body[data-layout=editorial] .intro-summary .intro-affiliation{margin-top:5px;font-size:12px;color:#606060}
-body[data-layout=editorial] .audience-shortcuts{flex-direction:row;gap:24px;margin-top:6px;justify-content:flex-start;flex-wrap:wrap}
-body[data-layout=editorial] .audience-shortcuts a{flex:none;font-size:12px;padding:5px 0;border:0;gap:10px;min-height:40px}
+body[data-layout=editorial] .shell{max-width:920px;padding-inline:40px}
+body[data-intro=editorial] .site-header{background:#fff}
+body[data-intro=editorial] .header-row{max-width:none;height:52px;padding-inline:40px}
+body[data-intro=editorial] .brand strong{font:700 14px/1 Arial,sans-serif;letter-spacing:.055em}
+body[data-intro=editorial] .brand small,body[data-intro=editorial] .header-nav{display:none}
+body[data-intro=editorial] .language-nav{font-family:Arial,sans-serif;gap:10px}
+body[data-intro=editorial] .language-nav a{color:#666}
+body[data-intro=editorial] .language-nav a[aria-current]{color:#202020;font-weight:700}
+body[data-intro=editorial] .lab-intro{border:0;margin:0;padding:34px 0 0;grid-template-columns:minmax(0,1fr) 196px;gap:18px 44px;align-items:start}
+body[data-intro=editorial] .intro-summary h1{font-size:24px;font-weight:700;letter-spacing:0;line-height:1.4}
+body[data-intro=editorial] .intro-summary>p{font-size:14px;line-height:1.9;color:#303030;margin-top:16px;max-width:40em}
+body[data-intro=editorial] .intro-summary .intro-affiliation{margin-top:5px;font-size:12px;color:#606060}
+body[data-intro=editorial] .audience-shortcuts{flex-direction:column;gap:0;margin-top:11px;align-items:flex-start;justify-content:flex-start}
+body[data-intro=editorial] .audience-shortcuts a{flex:none;font-size:12px;padding:5px 0;border:0;gap:12px;min-height:38px}
 body[data-layout=editorial] .text-link{font-size:12px;color:#333;gap:10px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa}
 body[data-layout=editorial] .text-link:hover{text-decoration-color:#222}
-.editorial-index{grid-column:1/-1;display:flex;gap:26px;flex-wrap:wrap;border-block:1px solid #dedede;margin-top:23px}
-.editorial-index a{font-size:12px;min-height:46px;display:inline-flex;align-items:center}
+.editorial-index{grid-column:2;display:flex;flex-direction:column;gap:0;border-left:1px solid #dedede;padding-left:24px;margin:0}
+.editorial-index a{font-size:12px;min-height:34px;display:flex;align-items:center;line-height:1.7}
 .editorial-index a:hover{text-decoration:underline;text-underline-offset:4px}
-body[data-layout=editorial] .about-more{border:0}
-body[data-layout=editorial] .about-more>summary{min-height:44px;font-size:12px;color:#606060}
-body[data-layout=editorial] .about-more .plus{font:18px Arial,sans-serif}
+body[data-intro=editorial] .about-more{border-top:1px solid #dedede}
+body[data-intro=editorial] .about-more>summary{min-height:44px;font-size:12px;color:#606060}
+body[data-intro=editorial] .about-more .plus{font:18px Arial,sans-serif}
 body[data-layout=editorial] .page-section{padding:30px 0 32px;border-top:1px solid #dedede}
 body[data-layout=editorial] .research-section{padding-top:17px;border-top:0}
 body[data-layout=editorial] .page-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 16px;margin-bottom:20px}
@@ -94,30 +92,28 @@ body[data-layout=editorial] .footer-links nav a{font-size:11px}
 body[data-layout=editorial] .prototype-note{color:#777;font-size:10px;line-height:1.8;margin-top:14px}
 @media(max-width:760px){
  body[data-layout=editorial] .shell{padding-inline:26px}
- body[data-layout=editorial] .header-row{padding-inline:26px}
- body[data-layout=editorial] .lab-intro{grid-template-columns:160px minmax(0,1fr);column-gap:24px;padding-top:28px}
- .editorial-photo img{height:140px}
- body[data-layout=editorial] .intro-summary h1{font-size:21px}
- .editorial-index{gap:0 24px;margin-top:20px}
+ body[data-intro=editorial] .header-row{padding-inline:26px}
+ body[data-intro=editorial] .lab-intro{grid-template-columns:minmax(0,1fr) 172px;column-gap:28px;padding-top:28px}
+ body[data-intro=editorial] .intro-summary h1{font-size:21px}
+ .editorial-index{padding-left:20px}
  .editorial-research{gap:24px}
  body[data-layout=editorial] .connect-grid{gap:28px}
  body[data-layout=editorial] .contact-block{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
- body[data-layout=editorial] .shell,body[data-layout=editorial] .header-row{padding-inline:22px}
- body[data-layout=editorial] .header-row{height:56px;gap:12px}
- body[data-layout=editorial] .brand strong{font-size:13px}
- body[data-layout=editorial] .lab-intro{grid-template-columns:104px minmax(0,1fr);gap:0 18px;padding-top:24px}
- .editorial-photo{grid-row:1;grid-column:1}.editorial-photo img{height:83px}.editorial-photo figcaption{display:none}
- body[data-layout=editorial] .intro-summary{display:contents}
- body[data-layout=editorial] .intro-summary h1{grid-column:2;grid-row:1;font-size:19px;align-self:start;line-height:1.5;padding-top:5px}
- body[data-layout=editorial] .intro-summary .intro-affiliation{grid-column:2;grid-row:1;align-self:start;font-size:10px;line-height:1.7;margin:48px 0 0}
- body[data-layout=editorial] .intro-summary>p:not(.intro-affiliation){grid-column:1/-1;font-size:13px;margin-top:18px;line-height:1.95}
- body[data-layout=editorial] .audience-shortcuts{grid-column:1/-1;display:flex;flex-direction:column;gap:0;margin-top:9px}
- body[data-layout=editorial] .audience-shortcuts a{min-height:44px;font-size:12px;justify-content:space-between;border-bottom:1px solid #ededed}
- .editorial-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 10px;margin-top:15px;padding:5px 0}
- .editorial-index a{font-size:11px;min-height:44px;line-height:1.65}
- body[data-layout=editorial] .about-more>summary{font-size:11px;min-height:44px}
+ body[data-layout=editorial] .shell,body[data-intro=editorial] .header-row{padding-inline:22px}
+ body[data-intro=editorial] .header-row{height:56px;gap:12px}
+ body[data-intro=editorial] .brand strong{font-size:13px}
+ body[data-intro=editorial] .lab-intro{grid-template-columns:1fr;gap:18px;padding-top:27px}
+ body[data-intro=editorial] .intro-summary{display:block}
+ body[data-intro=editorial] .intro-summary h1{font-size:22px;line-height:1.5;padding:0}
+ body[data-intro=editorial] .intro-summary .intro-affiliation{font-size:11px;line-height:1.7;margin:5px 0 0}
+ body[data-intro=editorial] .intro-summary>p:not(.intro-affiliation){font-size:13px;margin-top:16px;line-height:1.95}
+ body[data-intro=editorial] .audience-shortcuts{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:9px}
+ body[data-intro=editorial] .audience-shortcuts a{min-height:44px;font-size:12px;justify-content:flex-start;border:0}
+ .editorial-index{grid-column:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,auto);grid-auto-flow:column;gap:0 20px;border:0;border-top:1px solid #dedede;margin:0;padding:11px 0 0}
+ .editorial-index a{font-size:12px;min-height:44px;line-height:1.65}
+ body[data-intro=editorial] .about-more>summary{font-size:11px;min-height:44px}
  body[data-layout=editorial] .page-section{padding:26px 0}
  body[data-layout=editorial] .research-section{padding-top:18px}
  body[data-layout=editorial] .page-heading{margin-bottom:20px;gap:0 12px}
@@ -142,6 +138,19 @@ body[data-layout=editorial] .prototype-note{color:#777;font-size:10px;line-heigh
  body[data-layout=editorial] .contact-email{font-size:22px}
  body[data-layout=editorial] .footer-site-nav{gap:0 16px}
  body[data-layout=editorial] .footer-links{gap:8px}
- html[lang=en] body[data-layout=editorial] .intro-summary h1{font-size:17px;padding-top:0}
- html[lang=en] body[data-layout=editorial] .intro-summary .intro-affiliation{font-size:9px;margin:55px 0 0}
+ html[lang=en] body[data-intro=editorial] .intro-summary h1{font-size:22px}
+ html[lang=en] body[data-intro=editorial] .intro-summary .intro-affiliation{font-size:11px;margin-top:5px}
 }
+
+/* F: the E introduction above D's image-led research and member cards. */
+body[data-layout=hybrid] .shell{max-width:1040px;padding-inline:40px}
+body[data-layout=hybrid] .header-row{max-width:none}
+body[data-layout=hybrid] .intro-summary{font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif}
+body[data-layout=hybrid] .editorial-index{font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif;color:#333}
+body[data-layout=hybrid] .intro-summary .text-link{color:#333;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa}
+body[data-layout=hybrid] .research-section{padding-top:23px;border-top:0}
+body[data-layout=hybrid] .research-detail{border-radius:5px}
+body[data-layout=hybrid] .research-thumb{border-radius:2px}
+body[data-layout=hybrid] .works-grid .media-slot{height:128px}
+@media(max-width:760px){body[data-layout=hybrid] .shell{padding-inline:26px}}
+@media(max-width:620px){body[data-layout=hybrid] .shell{padding-inline:22px}body[data-layout=hybrid] .research-section{padding-top:18px}body[data-layout=hybrid] .works-grid .media-slot{height:148px}}

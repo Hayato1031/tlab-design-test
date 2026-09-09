@@ -46,28 +46,28 @@ html[lang=en] .brand strong{font:450 22px Outfit,sans-serif;letter-spacing:-.025
  .page-footer{padding-top:27px}.footer-brand{font-size:35px}.footer-top>.text-link{font-size:11px}.footer-site-nav{display:grid;grid-template-columns:1fr 1fr;gap:0 15px}.footer-site-nav a{font-size:11px}.footer-links{align-items:flex-start;flex-direction:column;gap:8px;margin-top:16px}.footer-links nav{gap:18px}.prototype-note{font-size:10px}
 }
 /* D: begin with information, using small research images as orientation cues. */
-body[data-layout=index]{--accent:#286e72;--section-tint:#f2f7f6;--section-line:#dce8e6;--section-accent:#397c77}
-body[data-layout=index] .lab-intro{border-top:0;margin-top:0;padding-top:27px;padding-bottom:12px;gap:14px 50px}
-body[data-layout=index] .intro-summary h1{font-size:21px;font-weight:500;letter-spacing:.02em}body[data-layout=index] .intro-summary h1 small{font:11px Outfit,sans-serif;color:#70848d;margin-left:16px}
-body[data-layout=index] .intro-summary>p{font-size:15px;margin-top:9px;max-width:48em}
-body[data-layout=index] .about-more>summary{min-height:42px}
-body[data-layout=index] .page-section{padding:32px 0 37px}
-body[data-layout=index] .page-heading{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 20px;margin-bottom:20px}
-body[data-layout=index] .page-heading>p{margin:0;font-size:11px}body[data-layout=index] .page-heading h2{font-size:23px}body[data-layout=index] .page-heading>span{width:100%;margin-top:3px;font-size:12px}
-body[data-layout=index] .research-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px;align-items:start}
-body[data-layout=index] .research-detail{border:1px solid #dfe8e8;background:#fff;transition:border-color .2s}
-body[data-layout=index] .research-detail:hover{border-color:#91b5b0}
-body[data-layout=index] .research-detail>summary{display:grid;grid-template-columns:64px minmax(0,1fr) 16px;grid-template-rows:auto auto;gap:1px 13px;padding:13px;min-height:105px}
-body[data-layout=index] .area-number{display:none}.research-thumb{grid-row:1/3;width:64px;height:76px;background:#f0f4f5;overflow:hidden}.research-thumb img{height:100%;object-fit:cover}.thumb-cg img,.thumb-ai img{object-fit:contain;transform:scale(1.4)}.thumb-ai img{filter:hue-rotate(40deg)}
-body[data-layout=index] .area-name{grid-column:2;align-self:end}body[data-layout=index] .area-name h3{font-size:16px}body[data-layout=index] .area-name small{display:none}
-body[data-layout=index] .area-summary{display:block;grid-column:2;grid-row:2;font-size:10px;line-height:1.75;align-self:start;margin-top:4px}body[data-layout=index] .research-detail .plus{grid-column:3;grid-row:1/3;font-size:19px}
-body[data-layout=index] .research-list .detail-copy{padding:0 18px 19px;font-size:12px}.research-detail[open] .research-thumb{opacity:.8}
-body[data-layout=index] .works-grid{gap:22px}body[data-layout=index] .works-grid .media-slot{height:135px}body[data-layout=index] .works-grid .slot-art{transform:scale(.68)}body[data-layout=index] .works-grid .slot-label{bottom:10px;font-size:10px}
-body[data-layout=index] .work-meta{margin-top:12px}body[data-layout=index] .work-card h3{font-size:18px}
-@media(max-width:1100px){body[data-layout=index] .research-list{gap:12px}body[data-layout=index] .research-detail>summary{grid-template-columns:52px minmax(0,1fr) 14px;gap:1px 10px;padding:11px}body[data-layout=index] .research-thumb{width:52px;height:70px}body[data-layout=index] .area-name h3{font-size:14px}body[data-layout=index] .area-summary{font-size:10px}}
-@media(max-width:760px){body[data-layout=index] .research-list{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-layout=index] .lab-intro{gap:12px}body[data-layout=index] .intro-summary>p{font-size:14px}}
-@media(max-width:620px){body[data-layout=index] .lab-intro{padding-top:23px}body[data-layout=index] .intro-summary h1{font-size:20px}body[data-layout=index] .intro-summary h1 small{font-size:10px;margin-left:9px}body[data-layout=index] .intro-summary>p{font-size:13px}body[data-layout=index] .page-section{padding:27px 0 32px}body[data-layout=index] .page-heading{gap:2px 14px;margin-bottom:17px}body[data-layout=index] .page-heading>p{font-size:10px}body[data-layout=index] .page-heading h2{font-size:21px}body[data-layout=index] .research-list{grid-template-columns:1fr;gap:10px}body[data-layout=index] .research-detail>summary{min-height:84px;grid-template-columns:62px minmax(0,1fr) 18px;gap:1px 15px;padding:10px 14px}body[data-layout=index] .research-thumb{width:62px;height:62px}body[data-layout=index] .area-name h3{font-size:16px}body[data-layout=index] .area-summary{font-size:11px}body[data-layout=index] .works-grid .media-slot{height:160px}}
-@media(min-width:761px){body[data-layout=index] .lab-intro{padding-top:20px;gap:11px 45px}body[data-layout=index] .about-more>summary{min-height:36px}body[data-layout=index] .page-section{padding:24px 0 28px}body[data-layout=index] .page-heading{margin-bottom:16px}body[data-layout=index] .research-detail>summary{min-height:88px;padding:10px 13px}body[data-layout=index] .research-thumb{height:62px}}
+body:is([data-layout=index],[data-layout=hybrid]){--accent:#286e72;--section-tint:#f2f7f6;--section-line:#dce8e6;--section-accent:#397c77}
+body:is([data-layout=index],[data-layout=hybrid]) .lab-intro{border-top:0;margin-top:0;padding-top:27px;padding-bottom:12px;gap:14px 50px}
+body:is([data-layout=index],[data-layout=hybrid]) .intro-summary h1{font-size:21px;font-weight:500;letter-spacing:.02em}body:is([data-layout=index],[data-layout=hybrid]) .intro-summary h1 small{font:11px Outfit,sans-serif;color:#70848d;margin-left:16px}
+body:is([data-layout=index],[data-layout=hybrid]) .intro-summary>p{font-size:15px;margin-top:9px;max-width:48em}
+body:is([data-layout=index],[data-layout=hybrid]) .about-more>summary{min-height:42px}
+body:is([data-layout=index],[data-layout=hybrid]) .page-section{padding:32px 0 37px}
+body:is([data-layout=index],[data-layout=hybrid]) .page-heading{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 20px;margin-bottom:20px}
+body:is([data-layout=index],[data-layout=hybrid]) .page-heading>p{margin:0;font-size:11px}body:is([data-layout=index],[data-layout=hybrid]) .page-heading h2{font-size:23px}body:is([data-layout=index],[data-layout=hybrid]) .page-heading>span{width:100%;margin-top:3px;font-size:12px}
+body:is([data-layout=index],[data-layout=hybrid]) .research-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px;align-items:start}
+body:is([data-layout=index],[data-layout=hybrid]) .research-detail{border:1px solid #dfe8e8;background:#fff;transition:border-color .2s}
+body:is([data-layout=index],[data-layout=hybrid]) .research-detail:hover{border-color:#91b5b0}
+body:is([data-layout=index],[data-layout=hybrid]) .research-detail>summary{display:grid;grid-template-columns:64px minmax(0,1fr) 16px;grid-template-rows:auto auto;gap:1px 13px;padding:13px;min-height:105px}
+body:is([data-layout=index],[data-layout=hybrid]) .area-number{display:none}.research-thumb{grid-row:1/3;width:64px;height:76px;background:#f0f4f5;overflow:hidden}.research-thumb img{height:100%;object-fit:cover}.thumb-cg img,.thumb-ai img{object-fit:contain;transform:scale(1.4)}.thumb-ai img{filter:hue-rotate(40deg)}
+body:is([data-layout=index],[data-layout=hybrid]) .area-name{grid-column:2;align-self:end}body:is([data-layout=index],[data-layout=hybrid]) .area-name h3{font-size:16px}body:is([data-layout=index],[data-layout=hybrid]) .area-name small{display:none}
+body:is([data-layout=index],[data-layout=hybrid]) .area-summary{display:block;grid-column:2;grid-row:2;font-size:10px;line-height:1.75;align-self:start;margin-top:4px}body:is([data-layout=index],[data-layout=hybrid]) .research-detail .plus{grid-column:3;grid-row:1/3;font-size:19px}
+body:is([data-layout=index],[data-layout=hybrid]) .research-list .detail-copy{padding:0 18px 19px;font-size:12px}.research-detail[open] .research-thumb{opacity:.8}
+body:is([data-layout=index],[data-layout=hybrid]) .works-grid{gap:22px}body:is([data-layout=index],[data-layout=hybrid]) .works-grid .media-slot{height:135px}body:is([data-layout=index],[data-layout=hybrid]) .works-grid .slot-art{transform:scale(.68)}body:is([data-layout=index],[data-layout=hybrid]) .works-grid .slot-label{bottom:10px;font-size:10px}
+body:is([data-layout=index],[data-layout=hybrid]) .work-meta{margin-top:12px}body:is([data-layout=index],[data-layout=hybrid]) .work-card h3{font-size:18px}
+@media(max-width:1100px){body:is([data-layout=index],[data-layout=hybrid]) .research-list{gap:12px}body:is([data-layout=index],[data-layout=hybrid]) .research-detail>summary{grid-template-columns:52px minmax(0,1fr) 14px;gap:1px 10px;padding:11px}body:is([data-layout=index],[data-layout=hybrid]) .research-thumb{width:52px;height:70px}body:is([data-layout=index],[data-layout=hybrid]) .area-name h3{font-size:14px}body:is([data-layout=index],[data-layout=hybrid]) .area-summary{font-size:10px}}
+@media(max-width:760px){body:is([data-layout=index],[data-layout=hybrid]) .research-list{grid-template-columns:repeat(2,minmax(0,1fr))}body:is([data-layout=index],[data-layout=hybrid]) .lab-intro{gap:12px}body:is([data-layout=index],[data-layout=hybrid]) .intro-summary>p{font-size:14px}}
+@media(max-width:620px){body:is([data-layout=index],[data-layout=hybrid]) .lab-intro{padding-top:23px}body:is([data-layout=index],[data-layout=hybrid]) .intro-summary h1{font-size:20px}body:is([data-layout=index],[data-layout=hybrid]) .intro-summary h1 small{font-size:10px;margin-left:9px}body:is([data-layout=index],[data-layout=hybrid]) .intro-summary>p{font-size:13px}body:is([data-layout=index],[data-layout=hybrid]) .page-section{padding:27px 0 32px}body:is([data-layout=index],[data-layout=hybrid]) .page-heading{gap:2px 14px;margin-bottom:17px}body:is([data-layout=index],[data-layout=hybrid]) .page-heading>p{font-size:10px}body:is([data-layout=index],[data-layout=hybrid]) .page-heading h2{font-size:21px}body:is([data-layout=index],[data-layout=hybrid]) .research-list{grid-template-columns:1fr;gap:10px}body:is([data-layout=index],[data-layout=hybrid]) .research-detail>summary{min-height:84px;grid-template-columns:62px minmax(0,1fr) 18px;gap:1px 15px;padding:10px 14px}body:is([data-layout=index],[data-layout=hybrid]) .research-thumb{width:62px;height:62px}body:is([data-layout=index],[data-layout=hybrid]) .area-name h3{font-size:16px}body:is([data-layout=index],[data-layout=hybrid]) .area-summary{font-size:11px}body:is([data-layout=index],[data-layout=hybrid]) .works-grid .media-slot{height:160px}}
+@media(min-width:761px){body:is([data-layout=index],[data-layout=hybrid]) .lab-intro{padding-top:20px;gap:11px 45px}body:is([data-layout=index],[data-layout=hybrid]) .about-more>summary{min-height:36px}body:is([data-layout=index],[data-layout=hybrid]) .page-section{padding:24px 0 28px}body:is([data-layout=index],[data-layout=hybrid]) .page-heading{margin-bottom:16px}body:is([data-layout=index],[data-layout=hybrid]) .research-detail>summary{min-height:88px;padding:10px 13px}body:is([data-layout=index],[data-layout=hybrid]) .research-thumb{height:62px}}
 
 /* Keep related content close, and give each section a consistent breathing space. */
 .header-row{height:72px}
@@ -81,38 +81,38 @@ body[data-layout=index] .work-meta{margin-top:12px}body[data-layout=index] .work
 .connect-card{padding:26px 28px}.connect-card h3{margin:10px 0 13px}
 .connect-steps{margin:17px 0 20px}.campus-layout{gap:40px}
 .contact-block{margin-top:30px;padding-top:26px}
-body[data-layout=index] .shell{max-width:1240px;padding-inline:40px}
-body[data-layout=index] .lab-intro{padding:28px 0 10px;gap:17px 42px;grid-template-columns:minmax(0,1.5fr) minmax(280px,.75fr)}
-body[data-layout=index] .intro-summary>p{font-size:14px;line-height:1.95;max-width:46em}
-body[data-layout=index] .about-more>summary{min-height:44px}
-body[data-layout=index] .page-section{padding:28px 0 32px}
-body[data-layout=index] .page-heading{margin-bottom:19px}
-body[data-layout=index] .page-heading>span{margin-top:4px}
-body[data-layout=index] .research-list{gap:14px 18px}
-body[data-layout=index] .research-detail>summary{padding:14px;min-height:100px;grid-template-columns:56px minmax(0,1fr) 16px;column-gap:13px}
-body[data-layout=index] .research-thumb{width:56px;height:64px}
-body[data-layout=index] .area-summary{font-size:11px;line-height:1.7;margin-top:5px}
-body[data-layout=index] .works-grid .media-slot{height:116px}
-body[data-layout=index] .works-grid .slot-art{margin-top:-8px}
-body[data-layout=index] .member-card .media-slot{height:156px}
-body[data-layout=index] .slot-portrait .slot-art{transform:scale(.65);margin-top:-8px}
+body:is([data-layout=index],[data-layout=hybrid]) .shell{max-width:1240px;padding-inline:40px}
+body:is([data-layout=index],[data-layout=hybrid]) .lab-intro{padding:28px 0 10px;gap:17px 42px;grid-template-columns:minmax(0,1.5fr) minmax(280px,.75fr)}
+body:is([data-layout=index],[data-layout=hybrid]) .intro-summary>p{font-size:14px;line-height:1.95;max-width:46em}
+body:is([data-layout=index],[data-layout=hybrid]) .about-more>summary{min-height:44px}
+body:is([data-layout=index],[data-layout=hybrid]) .page-section{padding:28px 0 32px}
+body:is([data-layout=index],[data-layout=hybrid]) .page-heading{margin-bottom:19px}
+body:is([data-layout=index],[data-layout=hybrid]) .page-heading>span{margin-top:4px}
+body:is([data-layout=index],[data-layout=hybrid]) .research-list{gap:14px 18px}
+body:is([data-layout=index],[data-layout=hybrid]) .research-detail>summary{padding:14px;min-height:100px;grid-template-columns:56px minmax(0,1fr) 16px;column-gap:13px}
+body:is([data-layout=index],[data-layout=hybrid]) .research-thumb{width:56px;height:64px}
+body:is([data-layout=index],[data-layout=hybrid]) .area-summary{font-size:11px;line-height:1.7;margin-top:5px}
+body:is([data-layout=index],[data-layout=hybrid]) .works-grid .media-slot{height:116px}
+body:is([data-layout=index],[data-layout=hybrid]) .works-grid .slot-art{margin-top:-8px}
+body:is([data-layout=index],[data-layout=hybrid]) .member-card .media-slot{height:156px}
+body:is([data-layout=index],[data-layout=hybrid]) .slot-portrait .slot-art{transform:scale(.65);margin-top:-8px}
 @media(max-width:980px){
- body[data-layout=index] .research-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body:is([data-layout=index],[data-layout=hybrid]) .research-list{grid-template-columns:repeat(2,minmax(0,1fr))}
  .member-card .media-slot{height:178px}
 }
-@media(max-width:760px){body[data-layout=index] .lab-intro{grid-template-columns:1fr;gap:12px}}
+@media(max-width:760px){body:is([data-layout=index],[data-layout=hybrid]) .lab-intro{grid-template-columns:1fr;gap:12px}}
 @media(max-width:620px){
  .header-row{height:66px}.page-section{padding:30px 0 32px}.page-heading{margin-bottom:21px}
  .field-links a{min-height:44px}.lab-intro{margin-top:0;padding:22px 0 14px;gap:12px}
  .works-grid .media-slot{height:172px}.member-card .media-slot{height:140px}
  .slot-portrait .slot-art{transform:scale(.6);margin-top:-8px}
  .connect-card{padding:23px 21px}.campus-layout{gap:23px}
- body[data-layout=index] .shell{padding-inline:22px}
- body[data-layout=index] .lab-intro{padding-top:22px}
- body[data-layout=index] .research-list{grid-template-columns:1fr;gap:10px}
- body[data-layout=index] .research-detail>summary{min-height:84px;padding:11px 13px}
- body[data-layout=index] .research-thumb{height:58px}
- body[data-layout=index] .page-section{padding:26px 0 30px}
- body[data-layout=index] .works-grid .media-slot{height:148px}
- body[data-layout=index] .member-card .media-slot{height:136px}
+ body:is([data-layout=index],[data-layout=hybrid]) .shell{padding-inline:22px}
+ body:is([data-layout=index],[data-layout=hybrid]) .lab-intro{padding-top:22px}
+ body:is([data-layout=index],[data-layout=hybrid]) .research-list{grid-template-columns:1fr;gap:10px}
+ body:is([data-layout=index],[data-layout=hybrid]) .research-detail>summary{min-height:84px;padding:11px 13px}
+ body:is([data-layout=index],[data-layout=hybrid]) .research-thumb{height:58px}
+ body:is([data-layout=index],[data-layout=hybrid]) .page-section{padding:26px 0 30px}
+ body:is([data-layout=index],[data-layout=hybrid]) .works-grid .media-slot{height:148px}
+ body:is([data-layout=index],[data-layout=hybrid]) .member-card .media-slot{height:136px}
 }
