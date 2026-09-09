@@ -110,6 +110,8 @@ def build(variant, lang):
             out = out.replace(before, after)
     if variant in 'ef':
         out = out.replace('<script src="takeda-kinetic.js"', '<link rel="stylesheet" href="takeda-editorial.css"><script src="takeda-kinetic.js"')
+    if variant == 'f':
+        out = out.replace('href="takeda-editorial.css"', 'href="takeda-editorial.css?v=f-header-1"')
     (ROOT/filename).write_text(out)
 
 if __name__ == '__main__':
