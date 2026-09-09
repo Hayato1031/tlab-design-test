@@ -64,7 +64,7 @@ def build(variant, lang):
     if variant == 'e':
         header = header.replace(f'<strong>{t("武田圭史研究室","Takeda Lab.")}</strong>', '<strong>TAKEDA LAB.</strong>')
     if variant in 'efg':
-        approach = about[about.index('<details class="about-more"'):]
+        approach = '</section>' if variant == 'g' else about[about.index('<details class="about-more"'):]
         about = f'''<section class="lab-intro editorial-intro" id="about" aria-labelledby="intro-title"><div class="intro-summary"><h1 id="intro-title">{t('武田圭史研究室','Keiji Takeda Laboratory')}</h1><p class="intro-affiliation">{t('慶應義塾大学 湘南藤沢キャンパス','Keio University, Shonan Fujisawa Campus')}</p><p>{t('CG・映像・光・音響を用いたメディア表現を研究しています。生成AI・ドローン・VR/AR/XRの実践的な応用にも取り組んでいます。','We explore expression through computer graphics, film, light and sound, alongside practical applications of generative AI, drones and VR/AR/XR.')}</p><div class="audience-shortcuts">{link('#collaboration',t('共同研究・交流について','Collaboration & exchange'))}{link('#join',t('研究会への参加について','Joining the lab'))}</div></div><nav class="editorial-index" aria-label="{t('ページ内の各情報へ','On this page')}">{nav}</nav>{approach}'''
 
     research = '<section class="page-section research-section" id="research-details">'+heading('01','Research areas','研究領域')+'<div class="research-list">'
@@ -89,15 +89,43 @@ def build(variant, lang):
         works+=f'<{work_item} class="work-card">{placeholder(kind,t(label,"Image / video placeholder"))}<div class="work-meta"><span>{eng}</span><span>{t("掲載準備中","Coming soon")}</span></div><h3>{t(jp,eng)}</h3><p>{t(jbody,ebody)}</p></{work_item}>'
     works+=f'</{work_container}></section>'
 
+    if variant == 'g':
+        filters = [('all',t('すべて','All')),('成果',t('研究成果','Research')),('活動',t('活動報告','Lab notes')),('発表',t('展示・発表','Exhibitions'))]
+        works = '<section class="page-section works-section" id="outputs">'+heading('02','Works & activities','研究成果・活動報告')
+        works += '<div class="post-toolbar"><div class="post-filters" role="group" aria-label="'+t('記事をタグで絞り込む','Filter articles by tag')+'" hidden>'
+        for key,label in filters:
+            works += f'<button type="button" data-filter="{key}" aria-pressed="{"true" if key=="all" else "false"}" aria-controls="post-list">{label}</button>'
+        works += '</div><span class="post-count" role="status" aria-live="polite" data-suffix="'+t('件',' articles')+'">4'+t('件',' articles')+'</span></div>'
+        works += '<p class="post-demo-note">'+t('以下は記事一覧の表示サンプルです。実際の記事・公開日は掲載準備中です。','Sample article listings below. Actual articles and publication dates are being prepared.')+'</p><ul class="post-list" id="post-list">'
+        posts = [
+            ('成果',t('研究成果','Research'),t('制作プロジェクトの紹介','Creative project overview'),['CG',t('生成AI','Generative AI')]),
+            ('活動',t('活動報告','Lab notes'),t('実験・開発のプロセス','Experiments and development'),[t('ドローン','Drones')]),
+            ('発表',t('展示・発表','Exhibitions'),t('展示・発表のレポート','Exhibition and presentation report'),[t('メディア','Media art')]),
+            ('活動',t('活動報告','Lab notes'),t('制作の記録・リサーチノート','Production journal and research notes'),['VR / AR / XR']),
+        ]
+        for key,category,title,tags in posts:
+            badges=''.join(f'<span class="post-tag">{tag}</span>' for tag in [category]+tags)
+            works += f'<li class="post-item" data-category="{key}"><span class="post-date" aria-label="{t("公開日未定","Publication date pending")}">—<small>{t("日付未定","Date pending")}</small></span><article><div class="post-tags">{badges}</div><h3>{title}</h3></article><span class="post-sample">{t("サンプル","Sample")}</span></li>'
+        works += '</ul></section>'
+
     members='<section class="page-section members-section" id="members">'+heading('03','Members','メンバー',t('教員と、研究・制作に取り組む学生。','The faculty and students behind the research.'))+'<div class="members-grid">'
     members+=f'''<article class="member-card faculty-card">{placeholder('portrait',t('教員の写真を配置','Faculty portrait placeholder'))}<p class="member-role">{t('担当教員','Faculty')}</p><h3>{t('武田 圭史','Keiji Takeda')}</h3><p class="member-english">{t('Keiji Takeda','Takeda Lab.')}</p><p class="member-description">{t('慶應義塾大学 環境情報学部','Faculty of Environment and Information Studies, Keio University')}</p>{link(FACULTY,t('大学の教員紹介','University faculty directory'),external=True)}</article>'''
     for n in range(1,4):
         members+=f'''<article class="member-card student-card">{placeholder('portrait',t('学生の写真を配置','Student portrait placeholder'))}<p class="member-role">{t('学生 / プロフィール掲載枠','Student / Profile placeholder')} {n:02}</p><h3>{t('メンバー名','Member name')}</h3><p class="member-english">{t('学年・所属','Year / Affiliation')}</p><p class="member-description">{t('研究テーマ・専門分野を掲載','Research topic and interests')}</p></article>'''
     members+=f'</div><p class="section-note">{t("学生の氏名・写真・プロフィールは掲載準備中です。上のカードはレイアウト確認用の掲載枠です。","Student names, photographs and profiles are being prepared. The cards above are layout placeholders.")}</p></section>'
 
+    if variant == 'g':
+        students = re.search(r'(<article class="member-card student-card">.*)</div><p class="section-note">', members).group(1)
+        members = '<section class="page-section members-section" id="members">'+heading('03','Members','メンバー')
+        members += f'<article class="faculty-profile"><div class="faculty-identity"><p class="member-role">{t("担当教員","Faculty")}</p><h3>{t("武田 圭史","Keiji Takeda")}</h3><p class="member-english">{t("Keiji Takeda","武田 圭史")}</p></div><div class="faculty-info"><p>{t("慶應義塾大学 環境情報学部","Faculty of Environment and Information Studies")}<br>{t("湘南藤沢キャンパス（SFC）","Keio University, Shonan Fujisawa Campus")}</p><div class="faculty-links">{link(FACULTY,t("大学の教員紹介","University faculty directory"),external=True)}{link("mailto:keiji@sfc.keio.ac.jp","keiji@sfc.keio.ac.jp")}</div></div></article>'
+        members += f'<details class="student-members"><summary><span>{t("学生メンバー","Student members")}</span><span class="student-toggle">{t("詳細を見る","View details")}<span class="plus" aria-hidden="true">＋</span></span></summary><div class="members-grid">{students}</div><p class="section-note">{t("学生の氏名・プロフィールは掲載準備中です。上のカードはレイアウト確認用の掲載枠です。","Student names and profiles are being prepared. These are layout placeholders.")}</p></details></section>'
+
     connect='<section class="page-section connect-section" id="connect">'+heading('04','Connect with us','交流・参加のご案内')+'<div class="connect-grid">'
     connect+=f'''<article class="connect-card" id="collaboration"><p class="eyebrow">Collaboration &amp; exchange</p><h3>{t('共同研究・交流を<br>お考えの方へ','For collaboration<br>&amp; exchange')}</h3><p>{t('共同研究、技術や表現に関する意見交換、展示・取材など、研究会との交流に関するご相談はこちらへ。','For inquiries about collaborative research, exchanges on technology and creative practice, exhibitions, or media coverage.')}</p><ol class="connect-steps"><li>{link('#research-details',t('関連する研究領域を知る','Explore relevant research areas'))}</li><li>{link('#outputs',t('研究成果・活動をみる','Browse works & activities'))}</li><li><span>{t('相談内容と所属を添えてご連絡ください。','Contact us with your affiliation and a brief description of your inquiry.')}</span></li></ol>{link('mailto:keiji@sfc.keio.ac.jp?subject='+t('共同研究・交流について','Collaboration and exchange inquiry'),t('共同研究・交流について相談する','Contact us about collaboration'),'outline-link')}</article>'''
     connect+=f'''<article class="connect-card student-connect" id="join"><p class="eyebrow">For prospective students</p><h3>{t('研究会への参加を<br>検討している方へ','For students interested<br>in joining the lab')}</h3><p>{t('関心のある研究テーマを見つけ、研究会の活動内容を確認したうえで、参加・履修についてご相談ください。','Explore the research areas and how the lab works, then contact the faculty to discuss participation and enrollment.')}</p><ol class="connect-steps"><li>{link('#practice',t('研究会の活動の進め方を知る','Read about how the lab works'))}</li><li>{link(SYLLABUS,t('シラバスで活動内容を確認する','Review the course syllabus'),external=True)}</li><li><span>{t('所属・学年と、興味のあるテーマを添えてご連絡ください。','Contact us with your affiliation, year of study and research interests.')}</span></li></ol>{link('mailto:keiji@sfc.keio.ac.jp?subject='+t('研究会への参加・履修について','Participation and enrollment inquiry'),t('参加・履修について相談する','Ask about joining the lab'),'outline-link')}<p class="section-note">{t('最新の履修条件・募集時期は担当教員へご確認ください。','Please ask the faculty about current enrollment requirements and application periods.')}</p></article></div></section>'''
+
+    if variant == 'g':
+        connect = connect.replace(link('#practice',t('研究会の活動の進め方を知る','Read about how the lab works')),link('#research-details',t('関心のある研究領域を知る','Explore your research interests')))
 
     access = '<section class="page-section access-section" id="access">'+heading('05','Access & contact','アクセス・お問い合わせ')
     access+=f'''<div class="campus-layout"><figure class="campus-photo"><img src="assets/takeda-campus.jpg" width="1800" height="989" loading="lazy" alt="{t('慶應義塾大学湘南藤沢キャンパス','Keio University Shonan Fujisawa Campus')}"><figcaption>Keio University / Shonan Fujisawa Campus</figcaption></figure><div class="access-copy"><p class="eyebrow">Shonan Fujisawa Campus</p><h3>{t('慶應義塾大学<br>湘南藤沢キャンパス','Keio University<br>Shonan Fujisawa Campus')}</h3><address>{t('〒252-0882<br>神奈川県藤沢市遠藤5322','5322 Endo, Fujisawa, Kanagawa<br>252-0882, Japan')}</address><p>{t('湘南台駅西口、または辻堂駅北口より<br>「慶応大学」行きバスをご利用ください。','Take a bus bound for Keio University from the west exit of Shonandai Station or the north exit of Tsujido Station.')}</p><div class="access-links">{link(CAMPUS,t('交通アクセス（大学公式）','Directions (Keio University)'),external=True)}{link(MAP,t('キャンパスマップ','Campus map'),external=True)}</div><p class="section-note">{t('研究室への訪問は、事前にメールでご相談ください。','Please contact us by email before visiting the lab.')}</p></div></div><div class="contact-block" id="contact"><div><p class="eyebrow">Get in touch</p><h3>{t('お問い合わせ','Contact')}</h3><p>{t('共同研究・交流・取材、研究会への参加・履修のご相談。','For collaboration, exchange, media inquiries, and student participation.')}</p></div><div>{link('mailto:keiji@sfc.keio.ac.jp','keiji@sfc.keio.ac.jp','contact-email')}<p class="section-note">{t('武田圭史 / 2026年度春学期シラバス記載の連絡先','Keiji Takeda / Contact listed in the Spring 2026 syllabus')}</p></div></div></section>'''
@@ -125,7 +153,7 @@ def build(variant, lang):
     if variant in 'fg':
         out = out.replace('href="takeda-editorial.css"', 'href="takeda-editorial.css?v=f-header-1"')
     if variant == 'g':
-        out = out.replace('<script src="takeda-kinetic.js"', '<link rel="stylesheet" href="takeda-list.css?v=g-1"><script src="takeda-kinetic.js"')
+        out = out.replace('<script src="takeda-kinetic.js"', '<link rel="stylesheet" href="takeda-list.css?v=g-2"><script src="takeda-list.js?v=g-2" defer></script><script src="takeda-kinetic.js"')
     (ROOT/filename).write_text(out)
 
 if __name__ == '__main__':
