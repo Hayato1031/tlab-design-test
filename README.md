@@ -1,39 +1,48 @@
 # Takeda Lab. — Design prototypes
 
-[3案を比較する](https://hayato1031.github.io/tlab-design-test/)
+[4案を比較する](https://hayato1031.github.io/tlab-design-test/) · [新しいD案を開く](https://hayato1031.github.io/tlab-design-test/takeda-kinetic-d.html)
 
-白基調の研究室ホームページを比較するためのプロトタイプです。
+白基調の研究会ホームページを比較するプロトタイプです。
 
-- A: 立体アートとタイポグラフィ
-- B: 写真とタイポグラフィ
-- C: 動く点群アート
+- **D / Research index**：大きなトップビジュアルを設けず、概要・研究領域・研究成果から始まる新案。
+- **A / Sculptural art**：立体アートとタイポグラフィ。
+- **B / Photography**：写真とタイポグラフィ。
+- **C / Generative field**：動く点群アート。
 
-研究テーマは約5.8秒ごとに自動で切り替わります。手動のスライド操作はありません。研究領域のリンクは、その領域の説明を開きます。動きを減らす端末設定では静止表示になります。
+4案とも日本語・英語のページがあります。A〜Cの研究テーマは約5.8秒ごとに自動で切り替わります。手動のスライド操作はありません。動きを減らす端末設定では静止表示になります。Dはスライドや導入用の大きなビジュアルを持ちません。
 
-ページ下部は研究領域、活動の流れ、制作記録の掲載スペース、研究室情報、参加案内、問い合わせで構成しています。研究成果・活動写真は差し替え用の枠です。
+## 共通の内容
 
-## ファイル
+研究会について（活動方針・制作環境）、6つの研究領域、研究成果・活動報告、メンバー、交流・参加の案内、アクセス・お問い合わせ。内部組織の「班」を紹介する構成ではありません。
 
-- `index.html`: 3案の比較
-- `takeda-kinetic-a.html` / `b.html` / `c.html`: 各デザイン（実ファイル名はすべて `takeda-kinetic-` で始まります）
-- `takeda-kinetic.js`: 自動切り替え、点群の描画、ページ内ナビゲーション
-- `takeda-kinetic.css`: トップの表現
-- `takeda-page.css`: ページ下部
-- `takeda-visual.css`: 共通のベーススタイル
-- `assets/`: 画像・フォント
+共同研究・交流・取材を検討する方と、研究会への参加・履修を検討する学生の両方に、概要から専用案内へ進める入口を用意しています。問い合わせは件名付きのメールリンクです。フォームやCMSは接続していません。
 
-## ローカル表示
+教員名は既知の情報を掲載しています。学生の氏名・写真・プロフィール、研究成果、展示・発表、設備情報は掲載用の枠で、実在の人物や実績を創作していません。
 
-このディレクトリで `python3 -m http.server 8000` を実行し、ブラウザで `http://localhost:8000/` を開いてください。ビルドは不要です。
+## 編集と表示
 
-## 公開
+- `takeda-kinetic-a.html`〜`takeda-kinetic-d.html`：日本語の各案
+- `takeda-kinetic-a-en.html`〜`takeda-kinetic-d-en.html`：英語の各案
+- `index.html` / `takeda-kinetic-compare.html`：4案の比較
+- `takeda-kinetic-review-a.html`〜`takeda-kinetic-review-d.html`：PC・スマホのスクリーンショット比較
+- `tools/build_pages.py`：共通内容と日英ページの生成元
+- `tools/hero-a.html`〜`tools/hero-c.html`：A〜Cのビジュアル部分のテンプレート
+- `tools/build_compare.py`：比較・レビュー画面の生成元
+- `takeda-page.css`：共通内容とD案のスタイル
+- `takeda-kinetic.css` / `takeda-visual.css`：既存ビジュアルと基本スタイル
+- `takeda-kinetic.js`：自動切り替え・点群描画・ページ内ナビゲーション
 
-GitHub Pagesで `main` ブランチのルート `/` を公開します。`.nojekyll` を同梱しており、静的ファイルをそのまま配信します。
+生成元を編集したときは `python3 tools/build_pages.py` と `python3 tools/build_compare.py` を実行します。生成されたHTMLはそのまま配信でき、閲覧時のビルドは不要です。スクリーンショットは実際の画面から更新してください。
 
-## 内容・素材
+ローカルでは、このディレクトリで `python3 -m http.server 8000` を実行し、ブラウザで `http://localhost:8000/` を開きます。
 
-研究内容と連絡先は、提供された[2026年度春学期「研究会Ａ」シラバス](https://gslbs.keio.jp/syllabus/detail?ttblyr=2026&entno=03720&lang=jp)を要約しています。デザイン検討用で、実運用の公式サイトではありません。
+GitHub Pagesは `main` ブランチのルート `/` を公開します。
 
-キャンパス写真は提供素材。生成した写真と立体アートは仮イメージで、実際の研究成果ではありません。[生成記録](仮画像の生成記録.md)にプロンプトを記載しています。
+## 内容・素材の出典
 
-OutfitとM PLUS 1はSIL Open Font Licenseに基づき同梱しています。ライセンスは `assets/fonts/` を参照してください。
+- 研究内容と連絡先：[2026年度春学期「研究会Ａ」シラバス](https://gslbs.keio.jp/syllabus/detail?ttblyr=2026&entno=03720&lang=jp)
+- 所在地・交通案内：[慶應義塾大学 湘南藤沢キャンパス](https://www.keio.ac.jp/ja/about/campus/sfc/)
+- キャンパスマップ：[大学公式マップ](https://www.keio.ac.jp/ja/about/campus/sfc/map/)
+- 教員案内：[環境情報学部教員一覧](https://www.keio.ac.jp/ja/sfc-pem/faculty/ei/)
+
+キャンパス写真は提供素材です。生成写真と立体アートは仮イメージで、実際の研究成果ではありません。[生成記録](仮画像の生成記録.md)にプロンプトを記載しています。OutfitとM PLUS 1はSIL Open Font Licenseに基づき同梱しています。ライセンスは `assets/fonts/` にあります。

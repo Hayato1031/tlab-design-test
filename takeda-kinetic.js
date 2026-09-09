@@ -1,14 +1,17 @@
 (() => {
   'use strict';
-  const root=document.querySelector('.kinetic'); if(!root)return;
-  const topics=[
-    {id:'media',name:'メディア応用',sub:'光・音響・空間への表現',color:'#307db1'},
-    {id:'video',name:'映像メディア',sub:'実写・CG・モーショングラフィックス',color:'#387a68'},
-    {id:'ai',name:'生成AI',sub:'映像制作・新しい問題解決の手法',color:'#7864b7'},
-    {id:'drone',name:'ドローン',sub:'機体開発・制御・飛行試験',color:'#3b7185'},
-    {id:'xr',name:'VR / AR / XR',sub:'アプリケーション開発・教育への応用',color:'#a2608e'}
-  ];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  const english=document.documentElement.lang==='en';
+  const root=document.querySelector('.kinetic');
+  if(root){
+  const topics=[
+    {id:'media',name:english?'Media art':'メディア',sub:english?'Light, sound and spatial expression':'光・音響・空間への表現',color:'#307db1'},
+    {id:'video',name:english?'Film / Video':'動画・映像',sub:english?'Filming, editing and motion graphics':'撮影・編集・モーショングラフィックス',color:'#387a68'},
+    {id:'cg',name:english?'Computer graphics':'CG',sub:english?'3D graphics, animation and visual expression':'3DCG・アニメーション・映像表現',color:'#537bb3'},
+    {id:'ai',name:english?'Generative AI':'生成AI',sub:english?'Video production and new approaches to problems':'映像制作・新しい問題解決の手法',color:'#7864b7'},
+    {id:'drone',name:english?'Drones / UAV':'ドローン',sub:english?'Development, control and flight testing':'機体開発・制御・飛行試験',color:'#3b7185'},
+    {id:'xr',name:english?'Extended reality':'VR / AR / XR',sub:english?'Experiences and application development':'体験設計・アプリケーション開発',color:'#a2608e'}
+  ];
   const words=[...root.querySelectorAll('.word')],photos=[...root.querySelectorAll('[data-photo]')];
   const title=root.querySelector('[data-caption-title]'),subtitle=root.querySelector('[data-caption-sub]');
   const preview=new URLSearchParams(location.search),staticPreview=preview.get('motion')==='off';
@@ -50,17 +53,19 @@
   if('IntersectionObserver' in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:0}).observe(root);
   let resizeFrame=0;window.addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(resize);});
   show(startIndex);resize();sync();
+  }
 
   const menu=document.querySelector('.menu');
   function findHash(hash){try{return hash?document.getElementById(decodeURIComponent(hash.slice(1))):null;}catch{return null;}}
   function openHash(){const target=findHash(location.hash);if(target instanceof HTMLDetailsElement)target.open=true;return target;}
   document.addEventListener('click',event=>{
     const link=event.target.closest('a[href^="#"]');if(!link)return;const target=findHash(link.hash);if(!target)return;
-    const fromMenu=menu.contains(link);menu.open=false;
+    const fromMenu=menu?.contains(link);if(menu)menu.open=false;
     if(target instanceof HTMLDetailsElement){target.open=true;requestAnimationFrame(()=>{target.scrollIntoView({behavior:reduce.matches?'instant':'smooth',block:'start'});target.querySelector('summary').focus({preventScroll:true});});}
     else if(fromMenu){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}
   });
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.open){menu.open=false;menu.querySelector('summary').focus();}});
-  matchMedia('(min-width:621px)').addEventListener('change',event=>{if(event.matches)menu.open=false;});
-  window.addEventListener('hashchange',openHash);const target=openHash();if(target)requestAnimationFrame(()=>target.scrollIntoView({behavior:'instant',block:'start'}));
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu?.open){menu.open=false;menu.querySelector('summary').focus();}});
+  matchMedia('(min-width:981px)').addEventListener('change',event=>{if(event.matches&&menu)menu.open=false;});
+  function syncLanguageLinks(){document.querySelectorAll('.language-nav a').forEach(link=>{link.hash=location.hash;});}
+  syncLanguageLinks();window.addEventListener('hashchange',()=>{openHash();syncLanguageLinks();});const target=openHash();if(target)requestAnimationFrame(()=>target.scrollIntoView({behavior:'instant',block:'start'}));
 })();
