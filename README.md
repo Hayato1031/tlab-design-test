@@ -1,9 +1,10 @@
 # Takeda Lab. — Design prototypes
 
-[6案を比較する](https://hayato1031.github.io/tlab-design-test/) · [新しいF案を開く](https://hayato1031.github.io/tlab-design-test/takeda-kinetic-f.html)
+[7案を比較する](https://hayato1031.github.io/tlab-design-test/) · [新しいG案を開く](https://hayato1031.github.io/tlab-design-test/takeda-kinetic-g.html)
 
 白基調の研究会ホームページを比較するプロトタイプです。
 
+- **G / Research list**：Fをベースに成果・活動を画像なしのリストに変更。研究領域とメンバーの画像も外し、アクセスにGoogleマップを埋め込みます。
 - **F / Profile & research cards**：Eの紹介・交流と参加への入口・右の縦目次と、Dの画像付き研究カード・成果・メンバー欄を組み合わせた案。
 - **E / Academic profile**：[chujo.me](https://chujo.me/)を参考にした、細いヘッダー・本文中心の研究室プロフィール。上部は紹介と交流・参加への入口を左、縦並びの目次を右に配置し、本文幅も調整しています。研究内容を展開操作なしで読める構成です。
 - **D / Research index**：大きなトップビジュアルを設けず、概要・研究領域・研究成果から始まる案。本文幅・余白・写真枠を調整しました。
@@ -11,7 +12,7 @@
 - **B / Photography**：写真とタイポグラフィ。
 - **C / Generative field**：動く点群アート。
 
-6案とも日本語・英語のページがあります。A〜Cの研究テーマは約5.8秒ごとに自動で切り替わります。手動のスライド操作はありません。動きを減らす端末設定では静止表示になります。D・E・Fはスライドや導入用の大きなビジュアルを持ちません。
+7案とも日本語・英語のページがあります。A〜Cの研究テーマは約5.8秒ごとに自動で切り替わります。手動のスライド操作はありません。動きを減らす端末設定では静止表示になります。D・E・F・Gはスライドや導入用の大きなビジュアルを持ちません。
 
 ## 共通の内容
 
@@ -23,14 +24,15 @@
 
 ## 編集と表示
 
-- `takeda-kinetic-a.html`〜`takeda-kinetic-f.html`：日本語の各案
-- `takeda-kinetic-a-en.html`〜`takeda-kinetic-f-en.html`：英語の各案
-- `index.html` / `takeda-kinetic-compare.html`：6案の比較
-- `takeda-kinetic-review-a.html`〜`takeda-kinetic-review-f.html`：PC・スマホのスクリーンショット比較
+- `takeda-kinetic-a.html`〜`takeda-kinetic-g.html`：日本語の各案
+- `takeda-kinetic-a-en.html`〜`takeda-kinetic-g-en.html`：英語の各案
+- `index.html` / `takeda-kinetic-compare.html`：7案の比較
+- `takeda-kinetic-review-a.html`〜`takeda-kinetic-review-g.html`：PC・スマホのスクリーンショット比較
 - `tools/build_pages.py`：共通内容と日英ページの生成元
 - `tools/hero-a.html`〜`tools/hero-c.html`：A〜Cのビジュアル部分のテンプレート
 - `tools/build_compare.py`：比較・レビュー画面の生成元
 - `takeda-page.css`：共通内容とD・F案のスタイル
+- `takeda-list.css`：G案の画像なしリスト・メンバー・地図のスタイル
 - `takeda-editorial.css`：E案と、F案の紹介部分のスタイル
 - `takeda-kinetic.css` / `takeda-visual.css`：既存ビジュアルと基本スタイル
 - `takeda-kinetic.js`：自動切り替え・点群描画・ページ内ナビゲーション
@@ -51,3 +53,5 @@ GitHub Pagesは `main` ブランチのルート `/` を公開します。
 キャンパス写真は提供素材です。生成写真と立体アートは仮イメージで、実際の研究成果ではありません。[生成記録](仮画像の生成記録.md)にプロンプトを記載しています。OutfitとM PLUS 1はSIL Open Font Licenseに基づき同梱しています。ライセンスは `assets/fonts/` にあります。
 
 E案は参考サイトの情報の読みやすさと簡潔な構成を取り入れています。参考サイトの人物情報・文章・写真・コードは転載していません。
+
+G案のGoogleマップは[慶應SFC公式の会場アクセス案内](https://expo.sfc.keio.ac.jp/2025/ja/access/)に掲載された埋め込み先・リンクを使用しています。地図の表示にはインターネット接続が必要です。

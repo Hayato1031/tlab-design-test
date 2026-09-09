@@ -1,4 +1,4 @@
-"""Build six static design directions in Japanese and English."""
+"""Build seven static design directions in Japanese and English."""
 from pathlib import Path
 from html import escape
 import re
@@ -8,6 +8,9 @@ ARROW = '<span class="arrow" aria-hidden="true">↗</span>'
 SYLLABUS = 'https://gslbs.keio.jp/syllabus/detail?ttblyr=2026&entno=03720&lang=jp'
 CAMPUS = 'https://www.keio.ac.jp/ja/about/campus/sfc/'
 MAP = CAMPUS + 'map/'
+# Google Maps embed and link published by https://expo.sfc.keio.ac.jp/2025/ja/access/
+GOOGLE_MAP = 'https://maps.app.goo.gl/QB9FPsrJXJnBcHWM8'
+GOOGLE_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3252.695276483185!2d139.4246992757747!3d35.388013072683336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185394acdc07c3%3A0xc281fed97a64744a!2z5oW25oeJ576p5aG-5aSn5a2mIOa5mOWNl-iXpOayouOCreODo-ODs-ODkeOCuQ!5e0!3m2!1sja!2sjp!4v1757056797713!5m2!1sja!2sjp'
 FACULTY = 'https://www.keio.ac.jp/ja/sfc-pem/faculty/ei/'
 
 # Research descriptions summarize the supplied syllabus. The six headings follow
@@ -30,6 +33,7 @@ def build(variant, lang):
     def heading(number, english, japanese, note=''):
         return f'<div class="page-heading"><p>{number} / {english}</p><h2>{t(japanese,english)}</h2>{f"<span>{note}</span>" if note else ""}</div>'
     def placeholder(kind, label):
+        if variant == 'g' and kind in ('project','exhibition','report','portrait'): return ''
         return f'<div class="media-slot slot-{kind}"><span class="slot-art" aria-hidden="true"></span><span class="slot-label">{label}</span></div>'
 
     suffix = '-en' if en else ''
@@ -59,7 +63,7 @@ def build(variant, lang):
         about = about.replace('<h2 id="intro-title">', '<h1 id="intro-title">').replace('</small></h2>', '</small></h1>')
     if variant == 'e':
         header = header.replace(f'<strong>{t("武田圭史研究室","Takeda Lab.")}</strong>', '<strong>TAKEDA LAB.</strong>')
-    if variant in 'ef':
+    if variant in 'efg':
         approach = about[about.index('<details class="about-more"'):]
         about = f'''<section class="lab-intro editorial-intro" id="about" aria-labelledby="intro-title"><div class="intro-summary"><h1 id="intro-title">{t('武田圭史研究室','Keiji Takeda Laboratory')}</h1><p class="intro-affiliation">{t('慶應義塾大学 湘南藤沢キャンパス','Keio University, Shonan Fujisawa Campus')}</p><p>{t('CG・映像・光・音響を用いたメディア表現を研究しています。生成AI・ドローン・VR/AR/XRの実践的な応用にも取り組んでいます。','We explore expression through computer graphics, film, light and sound, alongside practical applications of generative AI, drones and VR/AR/XR.')}</p><div class="audience-shortcuts">{link('#collaboration',t('共同研究・交流について','Collaboration & exchange'))}{link('#join',t('研究会への参加について','Joining the lab'))}</div></div><nav class="editorial-index" aria-label="{t('ページ内の各情報へ','On this page')}">{nav}</nav>{approach}'''
 
@@ -78,10 +82,12 @@ def build(variant, lang):
             research += f'<article id="research-{id}"><h3>{t(ja,english)}<small>{t(english,"")}</small></h3><p>{t(body,ebody)}</p></article>'
         research += '</div></section>'
 
-    works = '<section class="page-section works-section" id="outputs">'+heading('02','Works & activities','研究成果・活動報告',t('プロジェクト・制作物から、展示・発表、日々の研究活動まで。','Projects and creative work, exhibitions and presentations, and research in progress.'))+'<div class="works-grid">'
+    work_container = 'ul' if variant == 'g' else 'div'
+    work_item = 'li' if variant == 'g' else 'article'
+    works = '<section class="page-section works-section" id="outputs">'+heading('02','Works & activities','研究成果・活動報告',t('プロジェクト・制作物から、展示・発表、日々の研究活動まで。','Projects and creative work, exhibitions and presentations, and research in progress.'))+f'<{work_container} class="works-grid">'
     for kind,eng,jp,label,jbody,ebody in [('project','Projects','プロジェクト・制作物','作品写真・映像を配置','作品の概要、関連する研究領域、制作物や公開リンクを掲載します。','Space for a project summary, related research areas, outputs and public links.'),('exhibition','Exhibitions','展示・発表','展示・発表の写真を配置','展示や研究発表の内容、開催情報、発表資料を掲載します。','Space for exhibition and presentation reports, event details and presentation materials.'),('report','Lab notes','活動報告','研究活動の写真を配置','制作や実験の過程、イベントなど、研究会の活動を掲載します。','Space for reports on production, experiments, events and other lab activities.')]:
-        works+=f'<article class="work-card">{placeholder(kind,t(label,"Image / video placeholder"))}<div class="work-meta"><span>{eng}</span><span>{t("掲載準備中","Coming soon")}</span></div><h3>{t(jp,eng)}</h3><p>{t(jbody,ebody)}</p></article>'
-    works+='</div></section>'
+        works+=f'<{work_item} class="work-card">{placeholder(kind,t(label,"Image / video placeholder"))}<div class="work-meta"><span>{eng}</span><span>{t("掲載準備中","Coming soon")}</span></div><h3>{t(jp,eng)}</h3><p>{t(jbody,ebody)}</p></{work_item}>'
+    works+=f'</{work_container}></section>'
 
     members='<section class="page-section members-section" id="members">'+heading('03','Members','メンバー',t('教員と、研究・制作に取り組む学生。','The faculty and students behind the research.'))+'<div class="members-grid">'
     members+=f'''<article class="member-card faculty-card">{placeholder('portrait',t('教員の写真を配置','Faculty portrait placeholder'))}<p class="member-role">{t('担当教員','Faculty')}</p><h3>{t('武田 圭史','Keiji Takeda')}</h3><p class="member-english">{t('Keiji Takeda','Takeda Lab.')}</p><p class="member-description">{t('慶應義塾大学 環境情報学部','Faculty of Environment and Information Studies, Keio University')}</p>{link(FACULTY,t('大学の教員紹介','University faculty directory'),external=True)}</article>'''
@@ -96,25 +102,33 @@ def build(variant, lang):
     access = '<section class="page-section access-section" id="access">'+heading('05','Access & contact','アクセス・お問い合わせ')
     access+=f'''<div class="campus-layout"><figure class="campus-photo"><img src="assets/takeda-campus.jpg" width="1800" height="989" loading="lazy" alt="{t('慶應義塾大学湘南藤沢キャンパス','Keio University Shonan Fujisawa Campus')}"><figcaption>Keio University / Shonan Fujisawa Campus</figcaption></figure><div class="access-copy"><p class="eyebrow">Shonan Fujisawa Campus</p><h3>{t('慶應義塾大学<br>湘南藤沢キャンパス','Keio University<br>Shonan Fujisawa Campus')}</h3><address>{t('〒252-0882<br>神奈川県藤沢市遠藤5322','5322 Endo, Fujisawa, Kanagawa<br>252-0882, Japan')}</address><p>{t('湘南台駅西口、または辻堂駅北口より<br>「慶応大学」行きバスをご利用ください。','Take a bus bound for Keio University from the west exit of Shonandai Station or the north exit of Tsujido Station.')}</p><div class="access-links">{link(CAMPUS,t('交通アクセス（大学公式）','Directions (Keio University)'),external=True)}{link(MAP,t('キャンパスマップ','Campus map'),external=True)}</div><p class="section-note">{t('研究室への訪問は、事前にメールでご相談ください。','Please contact us by email before visiting the lab.')}</p></div></div><div class="contact-block" id="contact"><div><p class="eyebrow">Get in touch</p><h3>{t('お問い合わせ','Contact')}</h3><p>{t('共同研究・交流・取材、研究会への参加・履修のご相談。','For collaboration, exchange, media inquiries, and student participation.')}</p></div><div>{link('mailto:keiji@sfc.keio.ac.jp','keiji@sfc.keio.ac.jp','contact-email')}<p class="section-note">{t('武田圭史 / 2026年度春学期シラバス記載の連絡先','Keiji Takeda / Contact listed in the Spring 2026 syllabus')}</p></div></div></section>'''
 
-    footer=f'''<footer class="page-footer"><div class="shell"><div class="footer-top"><a href="#main" class="footer-brand">Takeda Lab<span>.</span></a>{link('#main',t('ページ上部へ','Back to top'))}</div><nav class="footer-site-nav" aria-label="{t('フッターナビゲーション','Footer navigation')}">{nav}</nav><div class="footer-links"><span>{t('慶應義塾大学 SFC / 武田圭史研究室','Keio University, SFC / Keiji Takeda Laboratory')}</span><nav aria-label="{t('デザイン案の切り替え','Compare designs')}"><a href="index.html">{t('6案を比較','Compare designs')}</a>'''
-    footer+=''.join(f'<a href="takeda-kinetic-{v}{suffix}.html"'+(' aria-current="page"' if v==variant else '')+f'>{v.upper()}</a>' for v in 'abcdef')
+    if variant == 'g':
+        map_frame = f'<div class="campus-map"><iframe src="{GOOGLE_EMBED}" title="{t("慶應義塾大学 湘南藤沢キャンパスのGoogleマップ","Google Map of Keio University Shonan Fujisawa Campus")}" width="600" height="360" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>{link(GOOGLE_MAP,t("Googleマップで開く","Open in Google Maps"),external=True)}</div>'
+        access = re.sub(r'<figure class="campus-photo">.*?</figure>', lambda _: map_frame, access)
+        members = members.replace('学生の氏名・写真・プロフィール','学生の氏名・プロフィール').replace('Student names, photographs and profiles','Student names and profiles')
+
+    footer=f'''<footer class="page-footer"><div class="shell"><div class="footer-top"><a href="#main" class="footer-brand">Takeda Lab<span>.</span></a>{link('#main',t('ページ上部へ','Back to top'))}</div><nav class="footer-site-nav" aria-label="{t('フッターナビゲーション','Footer navigation')}">{nav}</nav><div class="footer-links"><span>{t('慶應義塾大学 SFC / 武田圭史研究室','Keio University, SFC / Keiji Takeda Laboratory')}</span><nav aria-label="{t('デザイン案の切り替え','Compare designs')}"><a href="index.html">{t('7案を比較','Compare designs')}</a>'''
+    footer+=''.join(f'<a href="takeda-kinetic-{v}{suffix}.html"'+(' aria-current="page"' if v==variant else '')+f'>{v.upper()}</a>' for v in 'abcdefg')
     footer+=f'''</nav></div><p class="prototype-note">{t('デザイン検討用プロトタイプ。研究内容は','Design prototype. Research descriptions summarize the ')}<a href="{escape(SYLLABUS,quote=True)}" target="_blank" rel="noopener noreferrer">{t('2026年度春学期「研究会Ａ」シラバス','Spring 2026 Research Seminar A syllabus')}</a>{t('をもとにしています。生成画像・アートは仮イメージ。成果・学生プロフィールの掲載枠は実在の実績・人物を示すものではありません。','. Generated visuals are illustrative. Work and student profile placeholders do not represent actual projects or people.')}</p></div></footer>'''
-    layout={'a':'object','b':'photo','c':'field','d':'index','e':'editorial','f':'hybrid'}[variant]
-    title={'a':'Sculptural art','b':'Photography','c':'Generative field','d':'Research index','e':'Academic profile','f':'Profile & research cards'}[variant]
-    intro_attr = ' data-intro="editorial"' if variant in 'ef' else ''
+    layout={'a':'object','b':'photo','c':'field','d':'index','e':'editorial','f':'hybrid','g':'hybrid'}[variant]
+    title={'a':'Sculptural art','b':'Photography','c':'Generative field','d':'Research index','e':'Academic profile','f':'Profile & research cards','g':'Research list'}[variant]
+    intro_attr = ' data-intro="editorial"' if variant in 'efg' else ''
+    variant_attr = ' data-variant="g"' if variant == 'g' else ''
     out=f'''<!doctype html>
-<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="description" content="{t('武田圭史研究室の研究領域・研究成果・メンバー・交流と参加のご案内。デザイン検討用プロトタイプ。','Explore Takeda Lab research, work, members, collaboration and student participation. Design prototype.')}"><title>{variant.upper()} | {title} | Takeda Lab.</title><link rel="alternate" hreflang="ja" href="takeda-kinetic-{variant}.html"><link rel="alternate" hreflang="en" href="takeda-kinetic-{variant}-en.html"><link rel="stylesheet" href="takeda-visual.css"><link rel="stylesheet" href="takeda-kinetic.css"><link rel="stylesheet" href="takeda-page.css"><script src="takeda-kinetic.js" defer></script></head><body data-layout="{layout}"{intro_attr}>
+<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="description" content="{t('武田圭史研究室の研究領域・研究成果・メンバー・交流と参加のご案内。デザイン検討用プロトタイプ。','Explore Takeda Lab research, work, members, collaboration and student participation. Design prototype.')}"><title>{variant.upper()} | {title} | Takeda Lab.</title><link rel="alternate" hreflang="ja" href="takeda-kinetic-{variant}.html"><link rel="alternate" hreflang="en" href="takeda-kinetic-{variant}-en.html"><link rel="stylesheet" href="takeda-visual.css"><link rel="stylesheet" href="takeda-kinetic.css"><link rel="stylesheet" href="takeda-page.css?v=seven-designs-1"><script src="takeda-kinetic.js" defer></script></head><body data-layout="{layout}"{intro_attr}{variant_attr}>
 {header}<main class="shell" id="main">{hero}{about}<div class="page-body">{research}{works}{members}{connect}{access}</div></main>{footer}</body></html>'''
     if variant == 'e':
         for before, after in [('教員の写真を配置','教員写真枠'),('学生の写真を配置','学生写真枠'),('Faculty portrait placeholder','Faculty photo'),('Student portrait placeholder','Student photo'),('Image / video placeholder','Image slot')]:
             out = out.replace(before, after)
-    if variant in 'ef':
+    if variant in 'efg':
         out = out.replace('<script src="takeda-kinetic.js"', '<link rel="stylesheet" href="takeda-editorial.css"><script src="takeda-kinetic.js"')
-    if variant == 'f':
+    if variant in 'fg':
         out = out.replace('href="takeda-editorial.css"', 'href="takeda-editorial.css?v=f-header-1"')
+    if variant == 'g':
+        out = out.replace('<script src="takeda-kinetic.js"', '<link rel="stylesheet" href="takeda-list.css?v=g-1"><script src="takeda-kinetic.js"')
     (ROOT/filename).write_text(out)
 
 if __name__ == '__main__':
-    for variant in 'abcdef':
+    for variant in 'abcdefg':
         for lang in ['ja','en']: build(variant,lang)
-    print('Built 6 designs in Japanese and English.')
+    print('Built 7 designs in Japanese and English.')

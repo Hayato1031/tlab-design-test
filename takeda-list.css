@@ -1,0 +1,33 @@
+/* G keeps F's header and introduction, with text-led content below. */
+body[data-variant=g] .research-detail>summary{grid-template-columns:minmax(0,1fr) 20px;grid-template-rows:auto auto;min-height:90px;padding:15px 18px;gap:5px 12px}
+body[data-variant=g] .area-name{grid-column:1;grid-row:1;align-self:end}
+body[data-variant=g] .area-summary{grid-column:1;grid-row:2;margin:0;font-size:12px;line-height:1.75}
+body[data-variant=g] .research-detail .plus{grid-column:2;grid-row:1/3}
+body[data-variant=g] .works-grid{display:block;list-style:none;padding:0;margin:0;border-top:1px solid #e0e8e8}
+body[data-variant=g] .work-card{display:grid;grid-template-columns:140px 220px minmax(0,1fr);gap:26px;align-items:center;padding:22px 0;border-bottom:1px solid #e0e8e8}
+body[data-variant=g] .work-meta{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:0;font-size:12px}
+body[data-variant=g] .work-card h3{font-size:17px;font-weight:500;line-height:1.7}
+body[data-variant=g] .work-card>p{font-size:13px;line-height:1.9;margin:0}
+body[data-variant=g] .members-grid{gap:26px}
+body[data-variant=g] .member-card{border-top:1px solid #dce6e5;padding-top:17px}
+body[data-variant=g] .member-role{margin-top:0;font-size:10px}
+body[data-variant=g] .member-card h3{font-size:22px;margin-top:8px}
+body[data-variant=g] .student-card h3{font-size:19px}
+body[data-variant=g] .member-description{margin-top:12px}
+.campus-map{min-width:0}
+.campus-map iframe{display:block;width:100%;height:320px;border:1px solid #e0e8e8;border-radius:4px;background:#f5f7f7}
+.campus-map>.text-link{margin-top:6px;min-height:44px;font-size:12px}
+@media(max-width:980px){body[data-variant=g] .work-card{grid-template-columns:120px minmax(0,1fr);gap:5px 24px}body[data-variant=g] .work-meta{grid-column:1;grid-row:1/3;align-self:start}body[data-variant=g] .work-card h3,body[data-variant=g] .work-card>p{grid-column:2}}
+@media(max-width:620px){
+ body[data-variant=g] .research-detail>summary{min-height:84px;padding:14px 17px;gap:4px 12px}
+ body[data-variant=g] .area-summary{font-size:11px}
+ body[data-variant=g] .work-card{grid-template-columns:1fr;padding:19px 0;gap:7px}
+ body[data-variant=g] .work-meta{grid-column:1;grid-row:auto;flex-direction:row;gap:15px;align-items:center;font-size:11px}
+ body[data-variant=g] .work-card h3,body[data-variant=g] .work-card>p{grid-column:1}
+ body[data-variant=g] .work-card h3{font-size:17px}
+ body[data-variant=g] .members-grid{gap:24px 18px}
+ body[data-variant=g] .member-card{padding-top:14px}
+ body[data-variant=g] .member-card h3{font-size:20px}
+ body[data-variant=g] .student-card h3{font-size:17px}
+ .campus-map iframe{height:280px}
+}
