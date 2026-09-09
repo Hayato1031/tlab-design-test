@@ -1,4 +1,4 @@
-/* Shared information structure for all three visual directions. */
+/* Shared information structure for the design directions. */
 body{--section-tint:#f3f7fa;--section-line:#dce6ed;--section-accent:#467188}
 body[data-layout=photo]{--section-tint:#f4f7f4;--section-line:#dde7df;--section-accent:#467a65}
 body[data-layout=field]{--section-tint:#f6f5fa;--section-line:#e5e3ee;--section-accent:#756ca0}
@@ -68,3 +68,51 @@ body[data-layout=index] .work-meta{margin-top:12px}body[data-layout=index] .work
 @media(max-width:760px){body[data-layout=index] .research-list{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-layout=index] .lab-intro{gap:12px}body[data-layout=index] .intro-summary>p{font-size:14px}}
 @media(max-width:620px){body[data-layout=index] .lab-intro{padding-top:23px}body[data-layout=index] .intro-summary h1{font-size:20px}body[data-layout=index] .intro-summary h1 small{font-size:10px;margin-left:9px}body[data-layout=index] .intro-summary>p{font-size:13px}body[data-layout=index] .page-section{padding:27px 0 32px}body[data-layout=index] .page-heading{gap:2px 14px;margin-bottom:17px}body[data-layout=index] .page-heading>p{font-size:10px}body[data-layout=index] .page-heading h2{font-size:21px}body[data-layout=index] .research-list{grid-template-columns:1fr;gap:10px}body[data-layout=index] .research-detail>summary{min-height:84px;grid-template-columns:62px minmax(0,1fr) 18px;gap:1px 15px;padding:10px 14px}body[data-layout=index] .research-thumb{width:62px;height:62px}body[data-layout=index] .area-name h3{font-size:16px}body[data-layout=index] .area-summary{font-size:11px}body[data-layout=index] .works-grid .media-slot{height:160px}}
 @media(min-width:761px){body[data-layout=index] .lab-intro{padding-top:20px;gap:11px 45px}body[data-layout=index] .about-more>summary{min-height:36px}body[data-layout=index] .page-section{padding:24px 0 28px}body[data-layout=index] .page-heading{margin-bottom:16px}body[data-layout=index] .research-detail>summary{min-height:88px;padding:10px 13px}body[data-layout=index] .research-thumb{height:62px}}
+
+/* Keep related content close, and give each section a consistent breathing space. */
+.header-row{height:72px}
+.field-links a{min-height:54px;padding-block:11px}
+.lab-intro{margin-top:0;padding:28px 0 14px;gap:20px 42px}
+.about-more>summary{min-height:44px}
+.page-section{padding:40px 0 42px}.page-heading{margin-bottom:24px}
+.works-grid .media-slot{height:180px}.work-meta{margin-top:13px}
+.members-grid{gap:24px}.member-card .media-slot{height:178px;aspect-ratio:auto}
+.member-role{margin-top:13px}.member-description{margin-top:9px}
+.connect-card{padding:26px 28px}.connect-card h3{margin:10px 0 13px}
+.connect-steps{margin:17px 0 20px}.campus-layout{gap:40px}
+.contact-block{margin-top:30px;padding-top:26px}
+body[data-layout=index] .shell{max-width:1240px;padding-inline:40px}
+body[data-layout=index] .lab-intro{padding:28px 0 10px;gap:17px 42px;grid-template-columns:minmax(0,1.5fr) minmax(280px,.75fr)}
+body[data-layout=index] .intro-summary>p{font-size:14px;line-height:1.95;max-width:46em}
+body[data-layout=index] .about-more>summary{min-height:44px}
+body[data-layout=index] .page-section{padding:28px 0 32px}
+body[data-layout=index] .page-heading{margin-bottom:19px}
+body[data-layout=index] .page-heading>span{margin-top:4px}
+body[data-layout=index] .research-list{gap:14px 18px}
+body[data-layout=index] .research-detail>summary{padding:14px;min-height:100px;grid-template-columns:56px minmax(0,1fr) 16px;column-gap:13px}
+body[data-layout=index] .research-thumb{width:56px;height:64px}
+body[data-layout=index] .area-summary{font-size:11px;line-height:1.7;margin-top:5px}
+body[data-layout=index] .works-grid .media-slot{height:116px}
+body[data-layout=index] .works-grid .slot-art{margin-top:-8px}
+body[data-layout=index] .member-card .media-slot{height:156px}
+body[data-layout=index] .slot-portrait .slot-art{transform:scale(.65);margin-top:-8px}
+@media(max-width:980px){
+ body[data-layout=index] .research-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .member-card .media-slot{height:178px}
+}
+@media(max-width:760px){body[data-layout=index] .lab-intro{grid-template-columns:1fr;gap:12px}}
+@media(max-width:620px){
+ .header-row{height:66px}.page-section{padding:30px 0 32px}.page-heading{margin-bottom:21px}
+ .field-links a{min-height:44px}.lab-intro{margin-top:0;padding:22px 0 14px;gap:12px}
+ .works-grid .media-slot{height:172px}.member-card .media-slot{height:140px}
+ .slot-portrait .slot-art{transform:scale(.6);margin-top:-8px}
+ .connect-card{padding:23px 21px}.campus-layout{gap:23px}
+ body[data-layout=index] .shell{padding-inline:22px}
+ body[data-layout=index] .lab-intro{padding-top:22px}
+ body[data-layout=index] .research-list{grid-template-columns:1fr;gap:10px}
+ body[data-layout=index] .research-detail>summary{min-height:84px;padding:11px 13px}
+ body[data-layout=index] .research-thumb{height:58px}
+ body[data-layout=index] .page-section{padding:26px 0 30px}
+ body[data-layout=index] .works-grid .media-slot{height:148px}
+ body[data-layout=index] .member-card .media-slot{height:136px}
+}
