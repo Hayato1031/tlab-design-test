@@ -95,3 +95,20 @@ body[data-portal=h]{--section-accent:#6a5d91;--section-tint:#f6f4fa;--section-li
 body[data-portal=h] .post-filters button[aria-pressed=true]{background:#554b83;border-color:#554b83}
 body[data-portal=h] .post-tag{background:#f0edf6;color:#655880}
 @media(max-width:760px){.studio-visual{width:64px;right:0;top:-5px}.studio-object{width:70px;height:70px;top:0;left:0;transform:rotate(-14deg)}}
+/* Kinetic revision: actual research themes form the typography behind the sculpture. */
+.studio-words{position:absolute;inset:0;z-index:1}
+.studio-word{position:absolute;left:2%;top:32px;font:500 clamp(45px,4.6vw,66px)/.99 Outfit,sans-serif;letter-spacing:-.06em;color:#595070;opacity:0;transform:translateY(13px);transition:opacity .6s,transform .8s;max-width:80%}
+.studio-word.is-active{opacity:1;transform:translateY(0)}
+.studio-for{position:absolute;left:4%;bottom:62px;font:400 21px Outfit,sans-serif;color:#716782;letter-spacing:-.03em}
+.studio-object{left:31%;top:6px;width:310px;height:310px;animation:sculpture-drift 8s ease-in-out infinite;transform-origin:50% 50%}
+.studio-disc{background:radial-gradient(ellipse at 60% 45%,#e8dff9 0%,#edf0fb 38%,#faf9fc 62%,#fff0 76%)}
+.studio-orbit.orbit-one{animation:orbit-breathe 12s ease-in-out infinite}
+.studio-orbit.orbit-two{opacity:.5}
+.studio-visual figcaption b{font-weight:400;margin-left:14px;font-variant-numeric:tabular-nums}
+@keyframes sculpture-drift{0%,100%{transform:translate(0,0) rotate(-19deg) scale(.98)}50%{transform:translate(-10px,-14px) rotate(6deg) scale(1.04)}}
+@keyframes orbit-breathe{0%,100%{transform:rotate(-23deg) scale(1)}50%{transform:rotate(-7deg) scale(.93)}}
+.motion-paused .studio-object,.motion-paused .studio-orbit{animation-play-state:paused}
+@media(max-width:1100px){.studio-object{width:280px;height:280px;left:26%;top:16px}.studio-word{font-size:54px}.studio-for{font-size:19px;bottom:67px}}
+@media(max-width:900px){.studio-object{width:245px;height:245px;left:22%;top:44px}.studio-word{font-size:46px}.studio-for{font-size:16px}}
+@media(max-width:760px){.studio-words{display:none}.studio-object{width:70px;height:70px;left:0;top:0;animation-name:sculpture-mobile}.studio-orbit{animation:none}@keyframes sculpture-mobile{0%,100%{transform:rotate(-22deg) translateY(0)}50%{transform:rotate(6deg) translateY(-4px)}}}
+@media(prefers-reduced-motion:reduce){.studio-object,.studio-orbit{animation:none!important}.studio-word{transition:none}}

@@ -1,10 +1,11 @@
 # Takeda Lab. — Design prototypes
 
-[9案を比較する](https://hayato1031.github.io/tlab-design-test/) · [H案](https://hayato1031.github.io/tlab-design-test/takeda-kinetic-h.html) · [I案](https://hayato1031.github.io/tlab-design-test/takeda-kinetic-i.html)
+[10案を比較する](https://hayato1031.github.io/tlab-design-test/) · [H案](https://hayato1031.github.io/tlab-design-test/takeda-kinetic-h.html) · [I案](https://hayato1031.github.io/tlab-design-test/takeda-kinetic-i.html)
 
 白基調の研究会ホームページを比較するプロトタイプです。
 
-- **H / Layered studio**：立体アート・研究室名・曲線を重ねたビジュアルとコンパクトな研究紹介。6領域、共同研究・交流、学生参加、成果・メンバー・アクセスへの入口を初期画面に集約。
+- **J / Campus editorial**：キャンパス写真を斜めの輪郭と文字に重ね、白・深緑・ミントで構成。Hと同じ情報配置を活かした写真の案。
+- **H / Kinetic studio**：動く立体アート・自動で入れ替わる6研究テーマ・曲線を重ねたビジュアルとコンパクトな研究紹介。6領域、共同研究・交流、学生参加、成果・メンバー・アクセスへの入口を初期画面に集約。
 - **I / Research atlas**：線のアートと研究領域の説明付き一覧。研究から探す入口と目的別の案内を左右に配置。
 - **G / Research list**：Fをベースに成果・活動を画像なしのリストに変更。研究領域とメンバーの画像も外し、アクセスにGoogleマップを埋め込みます。
 - **F / Profile & research cards**：Eの紹介・交流と参加への入口・右の縦目次と、Dの画像付き研究カード・成果・メンバー欄を組み合わせた案。
@@ -14,7 +15,7 @@
 - **B / Photography**：写真とタイポグラフィ。
 - **C / Generative field**：動く点群アート。
 
-9案とも日本語・英語のページがあります。A〜Cの研究テーマは約5.8秒ごとに自動で切り替わります。手動のスライド操作はありません。動きを減らす端末設定では静止表示になります。D・E・F・Gはスライドや導入用の大きなビジュアルを持ちません。
+10案とも日本語・英語のページがあります。A〜Cの研究テーマは約5.8秒ごとに自動で切り替わります。手動のスライド操作はありません。動きを減らす端末設定では静止表示になります。D・E・F・Gはスライドや導入用の大きなビジュアルを持ちません。
 
 ## 共通の内容
 
@@ -26,13 +27,15 @@
 
 ## 編集と表示
 
-- `takeda-kinetic-a.html`〜`takeda-kinetic-i.html`：日本語の各案
-- `takeda-kinetic-a-en.html`〜`takeda-kinetic-i-en.html`：英語の各案
-- `index.html` / `takeda-kinetic-compare.html`：9案の比較
-- `takeda-kinetic-review-a.html`〜`takeda-kinetic-review-i.html`：PC・スマホのスクリーンショット比較
+- `takeda-kinetic-a.html`〜`takeda-kinetic-j.html`：日本語の各案
+- `takeda-kinetic-a-en.html`〜`takeda-kinetic-j-en.html`：英語の各案
+- `index.html` / `takeda-kinetic-compare.html`：10案の比較
+- `takeda-kinetic-review-a.html`〜`takeda-kinetic-review-j.html`：PC・スマホのスクリーンショット比較
 - `tools/build_pages.py`：共通内容と日英ページの生成元
 - `tools/hero-a.html`〜`tools/hero-c.html`：A〜Cのビジュアル部分のテンプレート
-- `tools/build_portals.py`：Gの本文を継承してH・Iを別ファイルに生成
+- `tools/build_portals.py`：Gの本文を継承してH・I・Jを別ファイルに生成
+- `takeda-studio-motion.js`：Hの6研究テーマ切り替え。画面外・非表示タブ・動きを減らす設定では停止
+- `takeda-j-editorial.css`：写真を組み込んだJの独立スタイル
 - `takeda-h-studio.css`：Hの重なりを使ったビジュアルと案内の再デザイン
 - `takeda-portals.css`：H・Iの独立したトップ画面とレスポンシブのスタイル
 - `tools/build_compare.py`：比較・レビュー画面の生成元
@@ -62,3 +65,5 @@ E案は参考サイトの情報の読みやすさと簡潔な構成を取り入�
 G案のGoogleマップは[慶應SFC公式の会場アクセス案内](https://expo.sfc.keio.ac.jp/2025/ja/access/)に掲載された埋め込み先・リンクを使用しています。地図の表示にはインターネット接続が必要です。
 
 H・Iは、初期画面で主要な流れを選べることを優先します。本文の閲覧には通常の縦スクロールを使用し、固定高さによる切り捨ては行いません。スマホでは装飾を縮小・省略し、概要と11本の目的別・情報別リンクを保持します。ユーザー提供の参考スクリーンショットは導線の考え方の参考とし、第三者サイトのロゴ・画像・文言は使用していません。
+
+Hのアートは透過画像をCSSで浮遊・回転させています。研究テーマは4.8秒ごとに切り替わります。動きを減らす端末設定では静止し、研究領域への固定リンクは常時利用できます。Jはユーザー提供のキャンパス写真をCSSでトリミングしています。

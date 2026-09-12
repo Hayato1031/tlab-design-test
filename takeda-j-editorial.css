@@ -1,0 +1,81 @@
+/* J: architectural photography becomes part of the page's geometry. */
+body[data-portal=j]{--portal-ink:#203b36;--portal-muted:#586c65;--portal-line:#dce6df;--section-accent:#446f60;--section-tint:#f1f6f1;--section-line:#dce6dd}
+body[data-portal=j] main.shell{max-width:1260px}
+body[data-portal=j] .portal-header-inner{height:76px;border-bottom:1px solid #dfe8e1}
+body[data-portal=j] .portal-header{border:0;background:#ffffffed;backdrop-filter:blur(12px)}
+body[data-portal=j] .brand-mark{color:#3d7059}
+body[data-portal=j] .brand-mark>span{color:#b0c5b8}
+body[data-portal=j] .portal-contact{border-color:#cbd9cc;border-radius:3px}
+body[data-portal=j] .gateway{padding:23px 0 27px}
+body[data-portal=j] .gateway-main{gap:32px;grid-template-columns:1fr 1fr;position:relative}
+body[data-portal=j] .gateway-main:before{content:'';position:absolute;z-index:-1;top:15px;right:0;width:56%;height:calc(100% - 13px);background:#eef4ec;border-radius:100% 0 0 0}
+body[data-portal=j] .gateway-information{padding-top:20px;position:relative;z-index:2}
+body[data-portal=j] .portal-kicker{color:#5e7a69;font-size:10px;letter-spacing:.15em;margin-bottom:16px}
+body[data-portal=j] .gateway h1{font-size:34px;letter-spacing:.02em}
+body[data-portal=j] .gateway-description{font-size:14px;color:#4f655b;margin-top:18px}
+body[data-portal=j] .fields-heading{margin:26px 0 9px;color:#5f7568}
+body[data-portal=j] .gateway-fields{gap:0 18px}
+body[data-portal=j] .gateway-field{min-height:48px;border-color:#d6e1d7}
+body[data-portal=j] .field-index{color:#718b78}
+body[data-portal=j] .gateway-field>span:last-child{color:#48765e}
+.campus-composition{position:relative;isolation:isolate;margin:0;min-height:344px}
+.campus-image-mask{position:absolute;left:9%;right:0;top:0;height:296px;overflow:hidden;clip-path:polygon(14% 0,100% 0,100% 82%,88% 100%,0 100%,0 18%);background:#b9d4d0}
+.campus-image-mask img{width:100%;height:145%;position:absolute;top:-40%;left:0;object-fit:cover;object-position:center 78%}
+.campus-image-shade{position:absolute;inset:0;background:linear-gradient(100deg,#163e3670,transparent 70%),linear-gradient(0deg,#102f3680,transparent 70%)}
+.campus-image-type{position:absolute;left:32px;bottom:24px;font:400 53px/.85 Outfit,sans-serif;letter-spacing:-.055em;color:#fff;text-shadow:0 1px 15px #182f3820}
+.campus-image-type i{font-style:normal;display:block;margin-left:62px;margin-top:8px}
+.campus-outline{position:absolute;z-index:2;right:28px;top:-8px;font:500 88px/.85 Outfit,sans-serif;letter-spacing:-.065em;color:transparent;-webkit-text-stroke:1px #fff9;pointer-events:none}
+.campus-side-note{position:absolute;left:0;top:18px;writing-mode:vertical-rl;transform:rotate(180deg);font:9px Outfit,sans-serif;letter-spacing:.13em;color:#789181}
+.campus-composition figcaption{position:absolute;bottom:0;left:9%;right:0;display:flex;align-items:center;gap:11px;color:#4f6b5c;font-size:10px;line-height:1.6;min-height:40px}
+.campus-composition figcaption small{display:block;font:9px Outfit,Arial,sans-serif;color:#748476}
+.campus-location-mark{font-size:20px;width:30px;height:30px;display:grid;place-items:center;border:1px solid #b8cebb;border-radius:50%}
+body[data-portal=j] .gateway-actions{gap:0;margin-top:24px;border:1px solid #dce6dc;background:#f3f7ef}
+body[data-portal=j] .gateway-action{background:transparent;color:#274d3b;padding:20px 26px;min-height:105px;position:relative;gap:15px}
+body[data-portal=j] .gateway-action+*{border-left:1px solid #cddccc}
+body[data-portal=j] .gateway-action small{color:#6a836c;font-size:9px;letter-spacing:.14em}
+body[data-portal=j] .gateway-action strong{font-size:16px}
+body[data-portal=j] .gateway-action em{font-size:11px;color:#5f7462}
+body[data-portal=j] .gateway-action>span:last-child{border:0;background:#315d47;color:white;width:42px;height:42px;font-size:22px}
+body[data-portal=j] .join-action>span:last-child{background:#d4e2ca;color:#31563f}
+body[data-portal=j] .gateway-action:hover{background:#e8f0e1}
+body[data-portal=j] .gateway-quick{margin-top:21px;border-top:0;border-color:#dce6dc}
+body[data-portal=j] .gateway-quick a{min-height:70px}
+body[data-portal=j] .gateway-quick a+a{border-color:#e2e9e0}
+body[data-portal=j] .gateway-quick strong{font-size:13px}
+body[data-portal=j] .gateway-quick small{font-size:9px;color:#6c8573}
+@media(min-width:761px) and (max-height:760px){body[data-portal=j] .gateway{padding-top:16px}.campus-composition{min-height:318px}.campus-image-mask{height:270px}body[data-portal=j] .gateway-information{padding-top:13px}body[data-portal=j] .gateway-actions{margin-top:18px}body[data-portal=j] .gateway-action{min-height:97px;padding-block:17px}body[data-portal=j] .gateway-quick{margin-top:17px}}
+@media(max-width:1100px){body[data-portal=j] .gateway-main{gap:24px}body[data-portal=j] .gateway h1{font-size:29px}body[data-portal=j] .gateway-description{font-size:13px}body[data-portal=j] .gateway-action{padding-inline:20px}body[data-portal=j] .gateway-action strong{font-size:14px}.campus-image-type{font-size:46px;left:24px}.campus-outline{font-size:74px}}
+@media(max-width:900px){body[data-portal=j] .gateway h1{font-size:27px}.campus-image-type{font-size:40px}.campus-image-type i{margin-left:40px}}
+@media(max-width:760px){
+ body[data-portal=j] .portal-header-inner{height:64px}
+ body[data-portal=j] .gateway{padding-top:23px}
+ body[data-portal=j] .gateway-main{display:block}
+ body[data-portal=j] .gateway-main:before{display:none}
+ body[data-portal=j] .gateway-information{padding:0}
+ body[data-portal=j] .gateway-copy{padding-right:86px;position:relative}
+ body[data-portal=j] .portal-kicker{font-size:8px;letter-spacing:.1em;margin-bottom:10px}
+ body[data-portal=j] .gateway h1{font-size:23px;letter-spacing:0}
+ body[data-portal=j] .gateway-description{margin-right:-86px;font-size:12px;line-height:1.9;margin-top:16px}
+ .campus-composition{position:absolute;right:0;top:-2px;width:80px;height:74px;min-height:0}
+ .campus-image-mask{left:0;height:74px;clip-path:polygon(20% 0,100% 0,100% 80%,80% 100%,0 100%,0 20%)}
+ .campus-image-mask img{width:130%;left:-15%;height:135%;top:-35%}
+ .campus-image-shade{opacity:.3}
+ .campus-image-type,.campus-outline,.campus-side-note,.campus-composition figcaption{display:none}
+ body[data-portal=j] .fields-heading{margin-top:18px;margin-bottom:5px;font-size:10px}
+ body[data-portal=j] .gateway-fields{gap:0 13px}
+ body[data-portal=j] .gateway-field{min-height:44px}
+ body[data-portal=j] .field-label{font-size:12px}
+ body[data-portal=j] .gateway-actions{margin-top:16px;gap:0}
+ body[data-portal=j] .gateway-action{min-height:100px;padding:13px 11px;gap:5px;align-items:flex-start}
+ body[data-portal=j] .gateway-action small{font-size:8px;letter-spacing:.04em}
+ body[data-portal=j] .gateway-action strong{font-size:12px;line-height:1.7}
+ body[data-portal=j] .gateway-action em{display:none}
+ body[data-portal=j] .gateway-action>span:last-child{width:21px;height:21px;font-size:15px;flex-shrink:0;margin-top:25px}
+ body[data-portal=j] .gateway-quick{margin-top:17px}
+ body[data-portal=j] .gateway-quick a{min-height:46px;padding:8px 0}
+ body[data-portal=j] .gateway-quick strong{font-size:12px}
+ body[data-portal=j] .gateway-quick small{font-size:8px}
+ html[lang=en] body[data-portal=j] .gateway h1{font-size:20px}
+ html[lang=en] body[data-portal=j] .gateway .field-label{font-size:10px}
+ html[lang=en] body[data-portal=j] .gateway-action strong{font-size:11px}
+}
